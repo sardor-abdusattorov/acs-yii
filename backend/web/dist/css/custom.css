@@ -1,0 +1,258 @@
+.wrapper{
+    overflow: hidden;
+}
+
+.user-panel img{
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header{
+    height: auto;
+}
+.dark-mode .form-select:disabled{
+    background-color: #343a40;
+    color: #fff;
+}
+.dark-mode .table td, .dark-mode .table th{
+    color: #fff !important;
+}
+
+.dark-mode #manager-menu .list-group-item span{
+    color: #3395ff;
+}
+
+.dark-mode #manager-menu .list-group-item.active span{
+    color: #fff;
+}
+.table.text-center, .table.text-center td, .table.text-center th{
+    vertical-align: middle;
+}
+.grid-view .select2-container--krajee-bs5 .select2-selection--single .select2-selection__rendered{
+    min-width: 160px;
+}
+
+.direct-chat-text{
+    padding: 7px 15px;
+}
+.chat-item .user-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    flex: 1
+}
+.chat-item .user-image{
+    margin-right: 10px;
+}
+.chat-item .user-image img{
+    width: 35px;
+    height: 35px;
+}
+.chat-item .user-info-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-row .chat-list{
+    min-height: 400px;
+    max-height: 420px;
+    overflow: auto;
+    margin-bottom: 0;
+    padding-right: 10px;
+}
+.timeline-card .card-body{
+    max-height: 800px;
+    overflow: auto;
+}
+.timeline-card .timeline-header{
+    font-size: 16px;
+}
+.timeline>.time-label>span{
+    font-size: 14px;
+}
+.timeline-card .timeline{
+    margin-bottom: 30px;
+}
+.chat-messages .direct-chat-messages{
+    height: 100%;
+}
+.chat-messages .direct-chat-msg{
+    margin-bottom: 30px
+}
+.chat-messages .direct-chat-messages .direct-chat-msg:last-child{
+    margin-bottom: 0;
+}
+.chat-messages .card-body{
+    max-height: 520px;
+}
+.chat-row .card{
+    margin-bottom: 0;
+    height: 100%;
+}
+.chat-messages:last-child > div {
+    margin-bottom: 0;
+}
+.select2-container--krajee-bs5 .select2-selection__clear{
+    line-height: normal;
+    opacity: 0.8;
+}
+.select2-container--krajee-bs5 .select2-selection--single{
+    padding-right: 30px;
+}
+.user-texts .user-department{
+    font-size: 13px
+}
+.select2-container--krajee-bs5 .select2-selection{
+    display: flex;
+}
+.select2-container--krajee-bs5 .select2-selection--multiple .select2-selection__choice__remove{
+    line-height: normal;
+}
+.chat-item .text-body,
+.chat-item .user-info{
+    transition: .3s all ease;
+}
+.chat-list .chat-item.active .user-info{
+    border-color: #0a53be !important;
+}
+.chat-list .chat-item.active .text-body{
+        color: #0a53be !important;
+}
+.user-texts{
+    flex: 0 0 auto;
+    width: calc(65% - 5px);
+}
+
+.select2-container--krajee-bs5 .select2-selection--single .select2-selection__rendered{
+    width: 100%;
+}
+.auth-fluid {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 100vh;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    background: url(/dist/img/bg-auth.jpg) center;
+    background-size: cover
+}
+
+.auth-fluid .auth-fluid-form-box {
+    max-width: 480px;
+    border-radius: 0;
+    z-index: 2;
+    padding: 3rem 2rem;
+    background-color: #fff;
+    position: relative;
+    width: 100%
+}
+
+.auth-fluid .auth-fluid-right {
+    backdrop-filter: blur(5px);
+    padding: 6rem 3rem;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: relative;
+    color: #fff;
+    background-color: rgba(0,0,0,.3)
+}
+
+.auth-brand {
+    margin-bottom: 2rem
+}
+
+.auth-user-testimonial {
+    position: absolute;
+    margin: 0 auto;
+    padding: 0 1.75rem;
+    bottom: 3rem;
+    left: 0;
+    right: 0
+}
+
+.auth-user-testimonial p.lead {
+    font-size: 1.125rem;
+    margin: 0 auto 20px auto;
+    max-width: 700px
+}
+
+@media (min-width: 992px) {
+    .auth-brand {
+        position:absolute;
+        top: 3rem
+    }
+}
+
+@media (min-width: 1200px) {
+    .table-responsive {
+        display: table !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .auth-fluid {
+        display:block
+    }
+
+    .auth-fluid .auth-fluid-form-box {
+        max-width: 100%;
+        min-height: 100vh
+    }
+
+    .auth-fluid .auth-fluid-right {
+        display: none
+    }
+}
+.auth-logo .logo-light {
+    display: none!important
+}
+
+.auth-logo .logo-dark {
+    display: block!important
+}
+
+.dropdown-menu {
+    min-width: auto;
+    padding: .3rem !important;
+    -webkit-box-shadow: 0px 0px 35px 0px rgba(154, 161, 171, 0.15);
+    box-shadow: 0px 0px 35px 0px rgba(154, 161, 171, 0.15);
+     -webkit-animation-name: DropDownSlide;
+     animation-name: DropDownSlide;
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    top: 100%;
+}
+
+@keyframes DropDownSlide {
+    100% {
+        transform: translateY(0);
+    }
+
+    0% {
+        transform: translateY(10px);
+    }
+}
+.btn-warning{
+    color: #fff;
+}
+
+body.dark-mode .table > :not(caption) > * > *{
+    background: #343a40;
+}
+ected {
+    background-color: #f56a16; /* Изменённый цвет */
+}

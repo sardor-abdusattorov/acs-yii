@@ -1,0 +1,21 @@
+:root {
+    --Black: #000;
+    --Sandy-Yellow: #FFEE71;
+    --Green-Mist: #DACCAC;
+    --Gulf-Stream: #88ADB2;
+    --Summer-Green: #A0BE9E;
+    --Silver: #C9C7C8;
+    --Gunmetal: #2D303B;
+    --White: #fff;
+
+
+    --acs-sun: #ffee71;
+    --acs-sand: #e2c09a;
+    --acs-sky: #badad9;
+    --acs-grass: #a8ccb5;
+    --acs-snow: #f3fff4;
+    --acs-soil: #d6c4c1;
+    --acs-night: #202f3b;
+    --acs-black: #000;
+    --acs-sky-dark: #9fc0c5;
+  }

@@ -1,0 +1,45 @@
+/* FONTS */
+@font-face {
+    font-family: "Exposure_-10";
+    src: url("/fonts/exposure/Exposure_-10_205TF.woff2") format("woff2"),
+    url("/fonts/exposure/Exposure_-10_205TF.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Exposure_-20";
+    src: url("/fonts/exposure/Exposure_-20_205TF.woff2") format("woff2"),
+    url("/fonts/exposure/Exposure_-20_205TF.woff") format("woff");
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Exposure_-40";
+    src: url("/fonts/exposure/Exposure_-40_205TF.woff2") format("woff2"),
+    url("/fonts/exposure/Exposure_-40_205TF.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Exposure_+10";
+    src: url("/fonts/exposure/Exposure_+10_205TF.woff2") format("woff2"),
+    url("/fonts/exposure/Exposure_+10_205TF.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Exposure_+80";
+    src: url("/fonts/exposure/Exposure_+80_205TF.woff2") format("woff2"),
+    url("/fonts/exposure/Exposure_+80_205TF.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
