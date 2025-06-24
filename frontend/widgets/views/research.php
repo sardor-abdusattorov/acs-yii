@@ -1,4 +1,4 @@
-<section class="d-none menu_bar research pb-0 pb-md-5">
+<section class="d-none menu_bar research pb-0 pb-lg-5">
     <div class="section_header">
         <p class="first_title">Research</p>
     </div>
@@ -592,7 +592,7 @@
     </div>
 </section>
 
-<section class="menu_bar research pb-0 pb-md-5">
+<section class="menu_bar research pb-0 pb-lg-5">
     <div class="section_header">
         <p class="first_title">Research</p>
     </div>

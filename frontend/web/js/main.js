@@ -1,5 +1,18 @@
 $(document).ready(function(e){
 
+    $('.hero_content .hero_content_header').on('click', function () {
+        const bar   = $(this).closest('.menu_bar');
+        const hero  = $('.hero');
+        if (window.innerWidth < 992) {
+            if (bar.hasClass('opened')) {
+                bar.removeClass('opened');
+                hero.addClass('opened');
+                return;
+            }
+            $('.hero .main_content .main_section_hero').slideToggle(300);
+        }
+    });
+
     if (localStorage.getItem('theme') === 'night') {
         $('body').addClass('night');
         $('.toggle').addClass('active');

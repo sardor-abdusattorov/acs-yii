@@ -9,9 +9,9 @@ use frontend\widgets\Research;
 <section class="menu_bar hero opened">
     <div class="wrapper_header_hero d-flex" style="background-image: url('/images/hero_background_image.png')">
         <!-- Header with language toggle -->
-        <div class="main_header pt-0 pt-md-5 d-flex align-items-center flex-row flex-md-column justify-content-end justify-content-md-start">
+        <div class="main_header pt-lg-5 d-flex align-items-center flex-row flex-lg-column">
             <div class="toggle"></div>
-            <div class="languages ml-4 ml-md-0 mt-md-4 py-4 py-md-0 my-md-0 d-flex d-md-block text-center">
+            <div class="languages ml-4 ml-lg-0 mt-lg-4 py-4 py-lg-0 my-md-0 d-flex text-center">
                 <a rel="alternate" hreflang="en" href="/en" class="d-block active">EN</a>
                 <a rel="alternate" hreflang="oz" href="/oz" class="d-block">O‘Z</a>
                 <a rel="alternate" hreflang="ka" href="/ka" class="d-block">KA</a>
@@ -50,7 +50,9 @@ use frontend\widgets\Research;
 
     <!-- Main Content -->
     <div class="hero_content d-flex">
-        <div class="hero_content_header"></div>
+        <div class="hero_content_header">
+            <span>Overview</span>
+        </div>
         <div class="main_content">
             <div class="main_section_hero p-md-5 p-3">
                 <div class="introduction_block">

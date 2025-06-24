@@ -1,4 +1,4 @@
-<section class="menu_bar location pb-0 pb-md-5">
+<section class="menu_bar location pb-0 pb-lg-5">
     <div class="section_header">
         <p class="first_title">Location</p>
     </div>
