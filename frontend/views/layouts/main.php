@@ -22,8 +22,6 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
 
-<!--    <link rel="profile" href="https://gmpg.org/xfn/11"/>-->
-
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
@@ -61,16 +59,17 @@ AppAsset::register($this);
         <div class="modal-content">
             <div class="modal_header">
                 <div class="modal_logo">
-                    <img src="/images/modal_logo.svg" alt="logo" class="logo_img">
+                    <img src="/images/modal_logo_light.svg" alt="logo" class="logo_img dark">
+                    <img src="/images/modal_logo_dark.svg" alt="logo" class="logo_img light">
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <h4 class="content_title">
-                    Register now for the Aral Culture Summit!
+                    <?=Yii::t('app', 'Register now for the Aral Culture Summit!')?>
                 </h4>
                 <p class="content_subtitle">
-                    Complete the form below to sign up for the Summit
+                    <?=Yii::t('app', 'Complete the form below to sign up for the Summit')?>
                 </p>
 
                 <form class="modal_form">

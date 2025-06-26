@@ -7,9 +7,10 @@ return [
         2 => 'Нижнее меню',
     ],
     'languages' => [
+        'en' => 'English',
         'ru' => 'Русский',
         'uz' => 'Oʻzbekcha',
-        'en' => 'English',
+        'ka' => 'Qaraqalpaqsha',
     ],
     'adminEmail' => 'admin@example.com',
     'supportEmail' => 'support@example.com',

@@ -10,10 +10,20 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => 'en',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+        ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => yii\i18n\DbMessageSource::class,
+                    'sourceLanguage' => 'en-US',
+                    'forceTranslation' => true,
+                ],
+            ],
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -37,10 +47,20 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['en', 'ru', 'uz', 'ka'],
+            'enableDefaultLanguageUrlCode' => true,
+            'enableLanguagePersistence' => true,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/' => 'site/index',
+                '<action:(index|help-center)>' => 'site/<action>',
+                '<controller>/<action>/<id:\d+>' => '<controller>/<action>',
+                '<controller>/<action>' => '<controller>/<action>',
+                '<controller>' => '<controller>/index',
             ],
+
         ],
     ],
     'params' => $params,

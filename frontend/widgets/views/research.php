@@ -1,4 +1,4 @@
-<section class="d-none menu_bar research pb-0 pb-lg-5">
+<section class="menu_bar research pb-0 pb-lg-5">
     <div class="section_header">
         <p class="first_title">Research</p>
     </div>
@@ -6,7 +6,8 @@
         <div class="main_section_header">
             <div class="section_logo">
                 <a href="#" class="logo_link">
-                    <img class="logo_image_header" src="/images/logo_header/BLACK/logo_header_new_en.svg" alt="Logo">
+                    <img class="logo_image_header dark" src="/images/logo_header/dark/logo_header_new_en.svg" alt="Logo">
+                    <img class="logo_image_header light" src="/images/logo_header/light/logo_header_new_en.svg" alt="Logo">
                 </a>
             </div>
             <div class="header_navigation">
@@ -66,7 +67,7 @@
                         </div>
                         <div class="accordion_content">
                             <div class="content_row row">
-                                <div class="col-md-6">
+                                <div class="col-xl-6 col-12">
                                     <div class="accordion_texts">
                                         <div class="title">
                                             Lorem ipsum
@@ -83,7 +84,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-xl-6 col-12">
                                     <div class="accordion_image">
                                         <img src="/images/location_1.png" alt="location">
                                     </div>
@@ -120,7 +121,7 @@
                         </div>
                         <div class="accordion_content">
                             <div class="content_row row">
-                                <div class="col-md-6">
+                                <div class="col-xl-6 col-12">
                                     <div class="accordion_texts">
                                         <div class="title">
                                             Lorem ipsum
@@ -137,7 +138,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-xl-6 col-12">
                                     <div class="accordion_image">
                                         <img src="/images/location_1.png" alt="location">
                                     </div>
@@ -174,7 +175,7 @@
                         </div>
                         <div class="accordion_content">
                             <div class="content_row row">
-                                <div class="col-md-6">
+                                <div class="col-xl-6 col-12">
                                     <div class="accordion_texts">
                                         <div class="title">
                                             Lorem ipsum
@@ -191,7 +192,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-xl-6 col-12">
                                     <div class="accordion_image">
                                         <img src="/images/location_1.png" alt="location">
                                     </div>
@@ -228,7 +229,7 @@
                         </div>
                         <div class="accordion_content">
                             <div class="content_row row">
-                                <div class="col-md-6">
+                                <div class="col-xl-6 col-12">
                                     <div class="accordion_texts">
                                         <div class="title">
                                             Lorem ipsum
@@ -245,7 +246,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-xl-6 col-12">
                                     <div class="accordion_image">
                                         <img src="/images/location_1.png" alt="location">
                                     </div>
@@ -282,7 +283,7 @@
                         </div>
                         <div class="accordion_content">
                             <div class="content_row row">
-                                <div class="col-md-6">
+                                <div class="col-xl-6 col-12">
                                     <div class="accordion_texts">
                                         <div class="title">
                                             Lorem ipsum
@@ -299,7 +300,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-xl-6 col-12">
                                     <div class="accordion_image">
                                         <img src="/images/location_1.png" alt="location">
                                     </div>
@@ -307,115 +308,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="accordion_item">
-                        <div class="accordion_header">
-                            <div class="accordion_name">
-                                Lorem ipsum  dolor sit amet, consectetues adipscing elit, sed diam
-                            </div>
-                            <div class="accordion_author">
-                                Nome Surname, Name Surmane, Name Surname
-                            </div>
-                            <div class="accordion_actions">
-                                <ul class="actions">
-                                    <li>
-                                        <a href="#" class="action_link">
-                                            Buy ↗
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="action_link">
-                                            Download
-                                        </a>
-                                    </li>
-                                </ul>
-                                <button type="button" class="accordion_open" data-text-open="Read less" data-text-closed="Read more">
-                                    Read more
-                                </button>
-                            </div>
-                        </div>
-                        <div class="accordion_content">
-                            <div class="content_row row">
-                                <div class="col-md-6">
-                                    <div class="accordion_texts">
-                                        <div class="title">
-                                            Lorem ipsum
-                                        </div>
-                                        <div class="description">
-                                            The nearest airport is Nukus International
-                                            Airport (NCU), located just 5 km from
-                                            the city center. Direct flights are available from Tashkent and other major Uzbek cities. From the airport, you can take a taxi or pre-arranged shuttle to the event venue.
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet doloremea magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exercis
-                                            tation ullamcorper suscipit lobortis nisl
-                                            ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit
-                                            in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisi
-                                            Lorem ipsum dolor sit amet, consectetu.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="accordion_image">
-                                        <img src="/images/location_1.png" alt="location">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion_item">
-                        <div class="accordion_header">
-                            <div class="accordion_name">
-                                Lorem ipsum  dolor sit amet, consectetues adipscing elit, sed diam
-                            </div>
-                            <div class="accordion_author">
-                                Nome Surname, Name Surmane, Name Surname
-                            </div>
-                            <div class="accordion_actions">
-                                <ul class="actions">
-                                    <li>
-                                        <a href="#" class="action_link">
-                                            Buy ↗
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="action_link">
-                                            Download
-                                        </a>
-                                    </li>
-                                </ul>
-                                <button type="button" class="accordion_open" data-text-open="Read less" data-text-closed="Read more">
-                                    Read more
-                                </button>
-                            </div>
-                        </div>
-                        <div class="accordion_content">
-                            <div class="content_row row">
-                                <div class="col-md-6">
-                                    <div class="accordion_texts">
-                                        <div class="title">
-                                            Lorem ipsum
-                                        </div>
-                                        <div class="description">
-                                            The nearest airport is Nukus International
-                                            Airport (NCU), located just 5 km from
-                                            the city center. Direct flights are available from Tashkent and other major Uzbek cities. From the airport, you can take a taxi or pre-arranged shuttle to the event venue.
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet doloremea magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exercis
-                                            tation ullamcorper suscipit lobortis nisl
-                                            ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit
-                                            in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisi
-                                            Lorem ipsum dolor sit amet, consectetu.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="accordion_image">
-                                        <img src="/images/location_1.png" alt="location">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
 
                 </div>
             </div>
@@ -592,7 +484,7 @@
     </div>
 </section>
 
-<section class="menu_bar research pb-0 pb-lg-5">
+<section class="menu_bar research pb-0 pb-lg-5 d-none">
     <div class="section_header">
         <p class="first_title">Research</p>
     </div>
@@ -600,7 +492,8 @@
         <div class="main_section_header">
             <div class="section_logo">
                 <a href="#" class="logo_link">
-                    <img class="logo_image_header" src="/images/logo_header/BLACK/logo_header_new_en.svg" alt="Logo">
+                    <img class="logo_image_header dark" src="/images/logo_header/dark/logo_header_new_en.svg" alt="Logo">
+                    <img class="logo_image_header light" src="/images/logo_header/light/logo_header_new_en.svg" alt="Logo">
                 </a>
             </div>
             <div class="header_navigation">

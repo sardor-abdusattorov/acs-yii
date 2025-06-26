@@ -1,14 +1,17 @@
 <!-- Footer -->
-<footer class="footer py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 g-4 g-lg-0">
-                <a class="d-block mb-3 footer_logo" href="/">
-                    <img class="logo_image_footer" src="/images/aral_logo/logo_footer_new_en.svg" alt="Logo footer">
-                </a>
-            </div>
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="d-flex align-items-start footer_row">
+            <div class="footer_col">
+                <div class="footer_logo">
+                    <a class="d-block footer_logo" href="/">
+                        <img class="logo_image_footer light" src="/images/aral_logo/white/logo_footer_new_en.svg" alt="Logo footer">
 
-            <div class="col-lg-3 g-4 g-lg-0">
+                        <img class="logo_image_footer dark" src="/images/aral_logo/dark/logo_footer_new_en.svg" alt="Logo footer">
+                    </a>
+                </div>
+            </div>
+            <div class="footer_col">
                 <div class="contacts">
                     <p class="section_title">CONTACTS</p>
                     <p>Uzbekistan Art and Culture Development Foundation</p>
@@ -33,18 +36,21 @@
                     </a>
                 </div>
             </div>
-
-            <div class="col-lg-3 g-4 g-lg-0">
+            <div class="footer_col">
                 <div class="organisers">
                     <p class="section_title m-0">ORGANISER</p>
                     <p>Uzbekistan Art and Culture Development Foundation</p>
                     <a class="d-block mt-4 acdf_logo" href="https://acdf.uz/" target="_blank">
-                        <img class="logo_image_footer" src="/images/acdf_logo/logo-en.svg" alt="Logo footer">
+                        <img class="logo_image_footer light" src="/images/acdf_logo/light/logo-en.svg" alt="Logo footer">
+                        <img class="logo_image_footer dark" src="/images/acdf_logo/dark/logo-en.svg" alt="Logo footer">
                     </a>
                 </div>
+                <div class="policies mobile mt-4 pt-3">
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
             </div>
-
-            <div class="col-lg-3 g-4 g-lg-0">
+            <div class="footer_col">
                 <div class="subscribe_wrap">
                     <p class="section_title mb-2">NEWSLETTER</p>
 

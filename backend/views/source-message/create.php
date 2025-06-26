@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var common\models\SourceMessage $model */
 
-$this->title = 'Добавить Source Message';
-$this->params['breadcrumbs'][] = ['label' => 'Source Messages', 'url' => ['index']];
+$this->title = 'Добавить перевод';
+$this->params['breadcrumbs'][] = ['label' => 'Переводы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

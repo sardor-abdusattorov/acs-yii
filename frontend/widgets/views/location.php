@@ -6,7 +6,8 @@
         <div class="main_section_header">
             <div class="section_logo">
                 <a href="#" class="logo_link">
-                    <img class="logo_image_header" src="/images/logo_header/BLACK/logo_header_new_en.svg" alt="Logo">
+                    <img class="logo_image_header dark" src="/images/logo_header/dark/logo_header_new_en.svg" alt="Logo">
+                    <img class="logo_image_header light" src="/images/logo_header/light/logo_header_new_en.svg" alt="Logo">
                 </a>
             </div>
             <div class="header_navigation">
@@ -82,7 +83,7 @@
                         </h2>
 
                         <div class="location_block_row row">
-                            <div class="col-md-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="blocks_row">
                                     <div class="location_block">
                                         <h4>
@@ -106,7 +107,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="block_image">
                                     <a href="/images/location_1.png" data-fancybox="stat" data-caption="The hangar">
                                         <img src="/images/location_1.png" alt="The hangar">
@@ -140,7 +141,7 @@
                         </h2>
 
                         <div class="location_block_row row">
-                            <div class="col-md-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="blocks_row">
                                     <div class="location_block">
                                         <p>
@@ -154,7 +155,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="block_image">
                                     <a href="/images/location_4.png" data-fancybox="stat" data-caption="The hangar">
                                         <img src="/images/location_4.png" alt="image">

@@ -1,15 +1,48 @@
 $(document).ready(function(e){
 
     $('.hero_content .hero_content_header').on('click', function () {
-        const bar   = $(this).closest('.menu_bar');
-        const hero  = $('.hero');
+        const bar = $(this).closest('.menu_bar');
+        const hero = $('.hero');
+
         if (window.innerWidth < 992) {
+            if (bar.hasClass('opened')) {
+                bar.removeClass('opened');
+                if (hero.hasClass('mobile-opened')) {
+                    hero.removeClass('mobile-opened');
+                }
+            } else {
+                $('.menu_bar.opened').removeClass('opened');
+                bar.addClass('opened');
+                if (hero.hasClass('mobile-opened')) {
+                    hero.removeClass('mobile-opened');
+                }
+            }
+        }
+    });
+
+    $('.section_header').on('click', function () {
+        const bar = $(this).closest('.menu_bar');
+        const hero = $('.hero');
+
+        if (window.innerWidth >= 992) {
             if (bar.hasClass('opened')) {
                 bar.removeClass('opened');
                 hero.addClass('opened');
                 return;
             }
-            $('.hero .main_content .main_section_hero').slideToggle(300);
+
+            $('.menu_bar').removeClass('opened');
+            bar.addClass('opened');
+            hero.removeClass('opened');
+        } else {
+            if (bar.hasClass('opened')) {
+                bar.removeClass('opened');
+                hero.removeClass('mobile-opened');
+            } else {
+                $('.menu_bar.opened').removeClass('opened');
+                bar.addClass('opened');
+                hero.addClass('mobile-opened');
+            }
         }
     });
 
@@ -18,7 +51,6 @@ $(document).ready(function(e){
         $('.toggle').addClass('active');
     }
 
-// При клике на переключатель
     $('.toggle').click(function () {
         $('.toggle').toggleClass('active');
         $('body').toggleClass('night');
@@ -71,21 +103,5 @@ $(document).ready(function(e){
             prevEl: ".gallery .slide_prev"
         },
     });
-
-    $('.section_header').on('click', function () {
-        const bar   = $(this).closest('.menu_bar');
-        const hero  = $('.hero');
-
-        if (bar.hasClass('opened')) {
-            bar.removeClass('opened');
-            hero.addClass('opened');
-            return;
-        }
-
-        $('.menu_bar').removeClass('opened');
-        bar.addClass('opened');
-        hero.removeClass('opened');
-    });
-
 })
 

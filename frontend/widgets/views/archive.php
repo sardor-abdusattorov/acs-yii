@@ -1,4 +1,4 @@
-<section class="menu_bar archive pb-0 pb-lg-5">
+<section class="menu_bar archive  pb-0 pb-lg-5">
     <div class="section_header">
         <p class="first_title">Archive</p>
     </div>
@@ -6,7 +6,8 @@
         <div class="main_section_header">
             <div class="section_logo">
                 <a href="#" class="logo_link">
-                    <img class="logo_image_header" src="/images/logo_header/BLACK/logo_header_new_en.svg" alt="Logo">
+                    <img class="logo_image_header dark" src="/images/logo_header/dark/logo_header_new_en.svg" alt="Logo">
+                    <img class="logo_image_header light" src="/images/logo_header/light/logo_header_new_en.svg" alt="Logo">
                 </a>
             </div>
             <div class="header_navigation">
@@ -188,7 +189,7 @@
             </div>
             <div class="locations_row">
                 <div class="row archive_location">
-                    <div class="col-md-6">
+                    <div class="col-xl-6 col-12">
                         <div class="location_content">
                             <div class="location_name">
                                 OQ QUSH
@@ -205,14 +206,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-xl-6 col-12">
                         <div class="location_image">
                             <img src="/images/location_image.png" alt="image">
                         </div>
                     </div>
                 </div>
                 <div class="row archive_location">
-                    <div class="col-md-6">
+                    <div class="col-xl-6 col-12">
                         <div class="location_content">
                             <div class="location_name">
                                 OQ QUSH
@@ -229,7 +230,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-xl-6 col-12">
                         <div class="location_image">
                             <img src="/images/location_image.png" alt="image">
                         </div>
@@ -259,7 +260,7 @@
     </div>
 </section>
 
-<section class="menu_bar d-none archive pb-0 pb-md-5">
+<section class="menu_bar archive pb-0 pb-md-5 d-none">
     <div class="section_header">
         <p class="first_title">Archive</p>
     </div>
@@ -267,7 +268,8 @@
         <div class="main_section_header">
             <div class="section_logo">
                 <a href="#" class="logo_link">
-                    <img class="logo_image_header" src="/images/logo_header/BLACK/logo_header_new_en.svg" alt="Logo">
+                    <img class="logo_image_header dark" src="/images/logo_header/dark/logo_header_new_en.svg" alt="Logo">
+                    <img class="logo_image_header light" src="/images/logo_header/light/logo_header_new_en.svg" alt="Logo">
                 </a>
             </div>
             <div class="header_navigation">
@@ -291,59 +293,49 @@
             </div>
             <div class="article_infos">
                 <div class="info_item">
-                    <div class="info_title">
-                        4TH OF APRIL
-                    </div>
-                    <div class="info_description fw-bolder">
-                        11:00 – 12:00
-                    </div>
-                </div>
-                <div class="info_item">
-                    <div class="info_title">
-                        4TH OF APRIL
-                    </div>
-                    <div class="info_description">
-                        11:00 – 12:00
+                    <div class="inner_item">
+                        <div class="info_title">
+                            4TH OF APRIL
+                        </div>
+                        <div class="info_description fw-bolder">
+                            11:00 – 12:00
+                        </div>
                     </div>
                 </div>
                 <div class="info_item">
-                    <div class="info_title">
-                        4TH OF APRIL
-                    </div>
-                    <div class="info_description">
-                        11:00 – 12:00
-                    </div>
-                </div>
-                <div class="info_item">
-                    <div class="info_title">
-                        4TH OF APRIL
-                    </div>
-                    <div class="info_description">
-                        11:00 – 12:00
+                    <div class="inner_item">
+                        <div class="info_title">
+                            ATTENDEES
+                        </div>
+                        <div class="info_description">
+
+                        </div>
                     </div>
                 </div>
                 <div class="info_item">
-                    <div class="info_title">
-                        4TH OF APRIL
+                    <div class="inner_item">
+                        <div class="info_title">
+                            NABI AGZAMOV
+                        </div>
+                        <div class="info_description">
+                            Architect, Researcher at 5th Studio, Uzbekistan/Great Britain
+                        </div>
                     </div>
-                    <div class="info_description">
-                        11:00 – 12:00
+                    <div class="inner_item">
+                        <div class="info_title">
+                            AHMED AND RASHID BIN SHABIB
+                        </div>
+                        <div class="info_description">
+                            Founders of Brownbook and architects of interdisciplinary projects rethinking the circulation of materials and ideas in urbanism
+                        </div>
                     </div>
-                </div>
-                <div class="info_item">
-                    <div class="info_title">
-                        4TH OF APRIL
-                    </div>
-                    <div class="info_description">
-                        11:00 – 12:00
-                    </div>
-                </div>
-                <div class="info_item">
-                    <div class="info_title">
-                        4TH OF APRIL
-                    </div>
-                    <div class="info_description">
-                        11:00 – 12:00
+                    <div class="inner_item">
+                        <div class="info_title">
+                            VLADIM SOKOLOV
+                        </div>
+                        <div class="info_description">
+                            Head of the Project Implementation Agency of the International Fund for Saving the Aral Sea (IFAS), Uzbekistan
+                        </div>
                     </div>
                 </div>
             </div>

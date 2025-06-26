@@ -4,37 +4,74 @@ use frontend\widgets\Archive;
 use frontend\widgets\Location;
 use frontend\widgets\Program;
 use frontend\widgets\Research;
+use yii\helpers\Html;
+use yii\helpers\Url;
+
+
+$languages = Yii::$app->params['languages'];
+$language = Yii::$app->language;
+
+
+switch ($language) {
+    case 'ru':
+        $logo = '/images/logo_home/logo_home_new_ru.svg';
+        break;
+    case 'uz':
+        $logo = '/images/logo_home/logo_home_new_uz.svg';
+        break;
+    case 'ka':
+        $logo = '/images/logo_home/logo_home_new_ka.svg';
+        break;
+    case 'en':
+    default:
+        $logo = '/images/logo_home/logo_home_new_en.svg';
+        break;
+}
 
 ?>
 <section class="menu_bar hero opened">
     <div class="wrapper_header_hero d-flex" style="background-image: url('/images/hero_background_image.png')">
-        <!-- Header with language toggle -->
         <div class="main_header pt-lg-5 d-flex align-items-center flex-row flex-lg-column">
-            <div class="toggle"></div>
-            <div class="languages ml-4 ml-lg-0 mt-lg-4 py-4 py-lg-0 my-md-0 d-flex text-center">
-                <a rel="alternate" hreflang="en" href="/en" class="d-block active">EN</a>
-                <a rel="alternate" hreflang="oz" href="/oz" class="d-block">O‘Z</a>
-                <a rel="alternate" hreflang="ka" href="/ka" class="d-block">KA</a>
-                <a rel="alternate" hreflang="ru" href="/ru" class="d-block">RU</a>
+            <div class="mobile_logo">
+                <a href="#" class="logo_link">
+                    <img class="dark" src="/images/logo_header/dark/logo_header_new_en.svg" alt="Logo">
+                    <img class="light" src="/images/logo_header/light/logo_header_new_en.svg" alt="Logo">
+                </a>
+            </div>
+            <div class="header-actions d-flex align-items-center flex-row flex-lg-column">
+                <div class="toggle"></div>
+                <div class="languages ml-4 ml-lg-0 mt-lg-4 py-4 py-lg-0 my-md-0 d-flex text-center">
+
+                    <?php foreach ($languages as $code => $label): ?>
+                        <a rel="alternate" hreflang="<?= strtoupper($code) ?>" href="<?= Url::current(['language' => $code]) ?>" class="d-block <?= $code === $language ? 'active' : '' ?>">
+                            <?= strtoupper($code) ?>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
 
-        <!-- Hero Content -->
         <div class="hero-container px-3 px-md-5 py-3 p-md-5">
             <div class="logo-container">
-                <img class="w-50" src="/images/logo_home/logo_home_new_en.svg" alt="Logo">
+                <img class="w-50" src="<?= Html::encode($logo) ?>" alt="Logo">
             </div>
             <div class="reg_button_container mt-4 mt-md-5 pl-1 pl-md-2">
-                <a href="#" target="_blank" class="reg_button">Register now ↘</a>
+                <button class="reg_button" data-bs-toggle="modal" data-bs-target="#registerModal">
+                   <?=Yii::t('app', 'Register now')?> ↘
+                </button>
             </div>
 
             <div class="container hero-text">
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <p>A future for the planet <br>and Karakalpakstan</p>
+                        <p>
+                            <?=Yii::t('app', 'A future for the planet <br>and Karakalpakstan')?>
+                        </p>
                     </div>
                     <div class="col-12 col-md-6">
-                        <p class="text-end">Autumn<br>2026</p>
+                        <p class="text-end">
+                            <?=Yii::t('app', 'Autumn<br>2026')?>
+                        </p>
                     </div>
                 </div>
             </div>

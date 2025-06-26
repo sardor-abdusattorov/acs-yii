@@ -34,6 +34,7 @@ class SourceMessageController extends Controller
     {
         $searchModel = new SourceMessageSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
+        $dataProvider->query->orderBy(['id' => SORT_DESC]);
 
         $dataProvider->pagination->pageSize = 10;
 
