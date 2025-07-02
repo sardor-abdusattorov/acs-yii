@@ -55,6 +55,9 @@ return [
             'enableLanguagePersistence' => true,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'excludedRoutes' => [
+                'admin/*',
+            ],
             'rules' => [
                 '/' => 'site/index',
                 '<action:(index|help-center)>' => 'site/<action>',
@@ -62,8 +65,8 @@ return [
                 '<controller>/<action>' => '<controller>/<action>',
                 '<controller>' => '<controller>/index',
             ],
-
         ],
+
     ],
     'params' => $params,
 ];
