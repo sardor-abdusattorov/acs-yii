@@ -15,6 +15,7 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'language' => 'ru',
     'bootstrap' => ['log'],
+    'homeUrl' => '/admin',
     'aliases' => [
         '@mdm/admin' => '@backend/extensions/mdm/yii2-admin'
     ],
