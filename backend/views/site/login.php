@@ -79,6 +79,11 @@ $this->title = 'Login';
                 </div>
 
                 <?php ActiveForm::end(); ?>
+
+
+                <div class="form-group mt-3">
+                    <?= Html::a('Перейти на сайт', Yii::$app->params['frontend'], ['class' => 'btn btn-secondary btn-block']) ?>
+                </div>
             </div>
         </div>
     </div>
