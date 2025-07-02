@@ -1,5 +1,188 @@
 $(document).ready(function(e){
 
+    $(document).on('click', '.navigation_link', function(e) {
+        e.preventDefault();
+
+        var year = $(this).data('year');
+        let lang = $('html').attr('lang') || 'ru';
+
+        $.ajax({
+            url: '/' + lang + '/site/archive-year',
+            type: 'POST',
+            data: {year: year},
+            success: function(response) {
+                if (response.success) {
+                    $('.navigation_link').removeClass('active');
+                    $('[data-year="' + year + '"]').addClass('active');
+                    $('.main_section').html(response.html);
+                } else {
+                    console.error(response.message);
+                }
+            },
+            error: function() {
+                console.error('Ошибка загрузки данных');
+            }
+        });
+    });
+
+
+    $('.article_link').on('click', function(e) {
+        e.preventDefault();
+
+        let articleId = $(this).data('id');
+        let lang = $('html').attr('lang') || 'ru';
+
+        if (!articleId) return;
+
+        $.ajax({
+            type: 'POST',
+            url: '/' + lang + '/site/get-article',
+            data: {
+                id: articleId,
+                _csrf: $('meta[name="csrf-token"]').attr('content')
+            },
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    let article = response.article;
+                    let translation = article.translations.find(t => t.language === lang);
+
+                    if (!translation) {
+                        alert('Перевод на выбранном языке отсутствует.');
+                        return;
+                    }
+
+                    let html = `
+                <div class="article_title">${translation.title}</div>
+                <div class="article_date">${article.created_at}</div>
+                <div class="acticle_image">
+                    <a href="${article.image}" data-fancybox="gallery" data-caption="${translation.title}">
+                        <img src="${article.image}" alt="${translation.title}">
+                    </a>
+                    <p>${translation.description}</p>
+                </div>
+                <div class="article_content">
+                    ${translation.content}
+                </div>
+            `;
+                    $('.research_books, .research_articles').hide();
+                    $('.menu_bar.research .header_navigation ul li').not(':has(.back_link)').hide();
+                    $('.menu_bar.research .header_navigation .back_link').show();
+                    $('.article_section').html(html);
+                    $('html, body').animate({ scrollTop: $('.menu_bar.research').offset().top }, 'fast');
+                } else {
+                    alert(response.message || 'Ошибка загрузки статьи');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('AJAX error:', status, error);
+            }
+        });
+    });
+
+    $('.menu_bar.research .header_navigation .back_link').on('click', function(e) {
+        e.preventDefault();
+
+        $('.menu_bar.research .header_navigation ul li').show();
+        $(this).hide();
+        $('.article_section').empty();
+        $('.research_books, .research_articles').show();
+
+        // Плавно прокрутить наверх
+        $('html, body').animate({ scrollTop: $('.menu_bar.research').offset().top }, 'fast');
+    });
+
+
+    $('.event_day').on('click', function(e) {
+        e.preventDefault();
+        let day = $(this).data('day');
+        let lang = $('html').attr('lang') || 'ru';
+        if (!day) return;
+        $('.event_day').removeClass('active');
+        $(this).addClass('active');
+
+        $.ajax({
+            type: 'POST',
+            url: '/' + lang + '/site/get-programs',
+            data: {
+                day: day,
+                _csrf: $('meta[name="csrf-token"]').attr('content')
+            },
+            dataType: 'json',
+            success: function(data) {
+
+                let container = $('.events');
+                container.empty();
+
+                function formatTime(timeStr) {
+                    return timeStr ? timeStr.substring(0,5) : '';
+                }
+
+                function getTranslatedTitle(translations) {
+                    let lang = $('html').attr('lang') || 'ru';
+                    let translation = translations.find(t => t.language === lang);
+                    return translation ? translation.title : '';
+                }
+
+                if (data.success && data.programs.length) {
+                    let html = '<div class="events_container">';
+
+                    data.programs.forEach(function(program) {
+                        let programTranslation = getTranslatedTitle(program.translations);
+                        let locationTitle = program.location ? getTranslatedTitle(program.location.translations) : '';
+                        let tagTitle = program.tag ? getTranslatedTitle(program.tag.translations) : '';
+
+                        html += `
+                        <div class="row mb-3">
+                            <div class="col-12 col-lg-3 pl-0 pr-0 pr-md-2">
+                                <div class="event_time_location p-2 p-md-4">
+                                    <p class="event_time">${formatTime(program.start_time)} - ${formatTime(program.end_time)}</p>
+                                    <p class="event_location">${locationTitle}</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-9 pr-0 pl-0 pl-md-2">
+                                <div class="event_data" style="background-color: ${program.bg_color || '#f3fff4'}">
+                                    <div class="event p-2 p-md-4">
+                                        <div class="event_type mb-3 d-flex">
+                                            <span class="event_type_title">${tagTitle}</span>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-6 mb-2 mb-lg-0">
+                                                <h3 class="event_title">${programTranslation}</h3>
+                                            </div>
+                                            <div class="col-12 col-lg-6">
+                                                <div class="event_description">${program.translations.find(t => t.language === ($('html').attr('lang') || 'ru'))?.description || ''}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    });
+
+                    html += '</div>';
+                    container.html(html);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', status, error);
+
+            }
+        });
+    });
+
+
+    $('.scroll-link').on('click', function(e) {
+        e.preventDefault();
+        var target = $($(this).attr('href'));
+        if (target.length) {
+            $('html, body').animate({
+                scrollTop: target.offset().top
+            }, 600);
+        }
+    });
+
     $('.hero_content .hero_content_header').on('click', function () {
         const bar = $(this).closest('.menu_bar');
         const hero = $('.hero');

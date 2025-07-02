@@ -12,22 +12,15 @@ use yii\helpers\Url;
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
 
-        <li class="nav-item d-none d-sm-inline-block ml-4">
-            <a href="<?=Url::to(['/gii'])?>" class="btn btn-success px-4">GII</a>
-        </li>
+        <?php if (User::isSuperadmin()): ?>
+            <li class="nav-item d-none d-sm-inline-block ml-4">
+                <a href="<?= Url::to(['/gii']) ?>" class="btn btn-success px-4">GII</a>
+            </li>
+        <?php endif; ?>
 
         <li class="nav-item d-none d-sm-inline-block ml-4">
             <a href="<?= Yii::$app->params['frontend'] ?>" class="btn btn-primary px-4" target="_blank">Сайт</a>
         </li>
-
-
-        <?php if (User::getMyRole() === 'admin'):?>
-
-            <li class="nav-item d-none d-sm-inline-block ml-4">
-                <a href="<?= Url::to(['/gii'])?>" class="btn btn-success">GII</a>
-            </li>
-
-        <?php endif; ?>
 
     </ul>
 
@@ -55,7 +48,6 @@ use yii\helpers\Url;
                     <div class="dropdown-header noti-title">
                         <h6 class="text-overflow m-0">Добро пожаловать !</h6>
                     </div>
-
 
                     <div class="dropdown-divider"></div>
 

@@ -2,7 +2,6 @@
 
 namespace common\components;
 
-
 use kartik\editors\Summernote;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;

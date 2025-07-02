@@ -2,9 +2,6 @@
 @import url('variables.css');
 @import url('fonts.css');
 
-html {
-      scroll-behavior: smooth;
-}
 a:hover{
       color: var(--Black);
 }
@@ -97,7 +94,9 @@ body.night .languages a {
       border-bottom: none;
 }
 
-
+.invalid-feedback{
+      margin-top: 10px;
+}
 /* Main header */
 
 /* Toggle */
@@ -515,6 +514,9 @@ body.dark .menu_bar{
       line-height: normal;
       transition: .3s all ease;
 }
+.main_section_header .back_link{
+      display: none
+}
 .main_section_header .nav_link:hover{
       text-decoration-line: underline;
       text-decoration-style: solid;
@@ -567,7 +569,7 @@ body.dark .menu_bar{
       width: calc(33.33% - 100px);
 }
 .footer{
-      border: 1px solid transparent;
+      border-top: 1px solid transparent;
 }
 body.night .footer {
       background-color: var(--acs-night);
@@ -603,7 +605,7 @@ body.night .footer {
 .footer .contacts p,
 .footer .policies p,
 .social-media p{
-      margin-bottom: 0;
+      margin-bottom: 5px;
 }
 
 .footer a {
@@ -659,6 +661,7 @@ body.night .subscribe_form input[type="submit"]
 .subscribe_form input[type="email"]::placeholder
 {
       color: var(--acs-black);
+      width: 100%;
 }
 .subscribe_form input[type="email"]{
       width: 60%;
@@ -1257,9 +1260,6 @@ body.night .archive {
 .master_class{
       padding: 25px;
       background: #9FC0C5;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
       margin-bottom: 70px;
       border: 2px solid transparent;
 }
@@ -1528,7 +1528,8 @@ body.night .archive {
       margin-top: 50px;
       display: none;
 }
-.accordion_item .accordion_content .title{
+.accordion_item .accordion_content h2,
+.accordion_item .accordion_content h3{
       font-size: 25px;
       font-style: normal;
       font-weight: 400;
@@ -1539,7 +1540,7 @@ body.night .archive {
       font-family: 'Exposure_-20', sans-serif;
       margin-bottom: 25px;
 }
-.accordion_item .accordion_content .description{
+.accordion_item .accordion_content {
       leading-trim: both;
       text-edge: cap;
       font-size: 23px;
@@ -1730,6 +1731,8 @@ body.night .archive {
       font-weight: 400;
       line-height: 29px;
       transition: .3s all ease;
+      display: flex;
+      align-items: center
 }
 .archive_articles .archive .archive_type{
       margin-right: 65px;
@@ -1961,6 +1964,73 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       display: none;
 }
 
+.error_container{
+      padding: 40px;
+      width: 100%
+}
+
+
+.error_container .logo-container img{
+      height: 120px
+}
+.error_container .logo-container{
+      margin-bottom: 50px
+}
+
+/* ERROR PAGE */
+.error-page .error-page__wrapper{
+      color: var(--acs-sand);
+      text-align: center;
+      max-width: 70%;
+      margin: 0 auto;
+}
+.error-page{
+      margin-bottom: 100px;
+}
+.error-page .error-page__title{
+      font-size: 144px;
+      font-weight: 700;
+      line-height: 120%;
+      letter-spacing: -0.3px;
+      margin-bottom: 30px;
+}
+.error-page .error-page__message{
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 120%;
+}
+.error-page .error-page__description{
+      font-size: 20px;
+      line-height: 120%;
+      margin-bottom: 30px;
+      letter-spacing: -0.3px;
+}
+.error-page .button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+.error-page .button a{
+      font-family: "Exposure_-20", sans-serif;
+      background-color: var(--acs-sun);
+      padding: 10px 25px;
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 120%;
+      text-transform: uppercase;
+      color: var(--acs-black);
+      text-decoration: none !important;
+      border: 1px solid transparent;
+      width: fit-content;
+}
+.hero.error_page .wrapper_header_hero,
+.hero.error_page {
+      height: auto;
+}
+.wrapper.error_page{
+      min-height: auto;
+}
 /* MEDIA STYLES */
 @media all and (min-width: 1600px){
       .container{

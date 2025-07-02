@@ -51,6 +51,15 @@ return [
         ]
     ],
     'components' => [
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => yii\i18n\DbMessageSource::class,
+                    'sourceLanguage' => 'en-US',
+                    'forceTranslation' => true,
+                ],
+            ],
+        ],
         'request' => [
             'csrfParam' => '_csrf-backend',
             'baseUrl' => '',

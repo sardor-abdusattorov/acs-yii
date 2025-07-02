@@ -1,16 +1,18 @@
 <?php
 
+use common\components\FileUpload;
+use common\components\StaticFunctions;
 use frontend\widgets\Archive;
 use frontend\widgets\Location;
 use frontend\widgets\Program;
 use frontend\widgets\Research;
+use frontend\widgets\SectionLogo;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
 
 $languages = Yii::$app->params['languages'];
 $language = Yii::$app->language;
-
 
 switch ($language) {
     case 'ru':
@@ -28,113 +30,523 @@ switch ($language) {
         break;
 }
 
+$youtube_link = $settings['youtube_link'] ?? '';
 ?>
-<section class="menu_bar hero opened">
-    <div class="wrapper_header_hero d-flex" style="background-image: url('/images/hero_background_image.png')">
-        <div class="main_header pt-lg-5 d-flex align-items-center flex-row flex-lg-column">
-            <div class="mobile_logo">
-                <a href="#" class="logo_link">
-                    <img class="dark" src="/images/logo_header/dark/logo_header_new_en.svg" alt="Logo">
-                    <img class="light" src="/images/logo_header/light/logo_header_new_en.svg" alt="Logo">
-                </a>
-            </div>
-            <div class="header-actions d-flex align-items-center flex-row flex-lg-column">
-                <div class="toggle"></div>
-                <div class="languages ml-4 ml-lg-0 mt-lg-4 py-4 py-lg-0 my-md-0 d-flex text-center">
 
-                    <?php foreach ($languages as $code => $label): ?>
-                        <a rel="alternate" hreflang="<?= strtoupper($code) ?>" href="<?= Url::current(['language' => $code]) ?>" class="d-block <?= $code === $language ? 'active' : '' ?>">
-                            <?= strtoupper($code) ?>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
+<?php if (!empty($sections)): ?>
+    <?php foreach ($sections as $section): ?>
+        <?php if ($section->name == 'hero'): ?>
+            <section class="menu_bar <?= $section->name ?> <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>">
 
-        <div class="hero-container px-3 px-md-5 py-3 p-md-5">
-            <div class="logo-container">
-                <img class="w-50" src="<?= Html::encode($logo) ?>" alt="Logo">
-            </div>
-            <div class="reg_button_container mt-4 mt-md-5 pl-1 pl-md-2">
-                <button class="reg_button" data-bs-toggle="modal" data-bs-target="#registerModal">
-                   <?=Yii::t('app', 'Register now')?> ↘
-                </button>
-            </div>
-
-            <div class="container hero-text">
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <p>
-                            <?=Yii::t('app', 'A future for the planet <br>and Karakalpakstan')?>
-                        </p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <p class="text-end">
-                            <?=Yii::t('app', 'Autumn<br>2026')?>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Social Media -->
-            <div class="social_media_links">
-                <a href="https://www.instagram.com/aral.culture.summit/" class="social_link" title="Instagram" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram fa-2x"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="hero_content d-flex">
-        <div class="hero_content_header">
-            <span>Overview</span>
-        </div>
-        <div class="main_content">
-            <div class="main_section_hero p-md-5 p-3">
-                <div class="introduction_block">
-                    <div class="introduction_block_title">
-                        <p>
-                            ARAL CULTURE SUMMIT IS AN EMERGENT INITIATIVE DEDICATED TO THE SOCIAL AND ENVIRONMENTAL TRANSFORMATION OF THE ARAL SEA REGION THROUGH ART, CULTURE, SCIENCE, AND DESIGN.
-                        </p>
-                    </div>
-                    <div class="introduction_content">
-                        <div class="image">
-                            <img src="/images/aral_sea.png" alt="Aral Sea" width="75%">
+                <div class="wrapper_header_hero d-flex" style="background-image: url('/images/hero_background_image.png')">
+                    <div class="main_header pt-lg-5 d-flex align-items-center flex-row flex-lg-column">
+                        <div class="mobile_logo">
+                            <a href="#" class="logo_link">
+                                <img class="dark" src="/images/logo_header/dark/logo_header_new_en.svg" alt="Logo">
+                                <img class="light" src="/images/logo_header/light/logo_header_new_en.svg" alt="Logo">
+                            </a>
                         </div>
-
-                        <div class="text_block">
-                            <h2>The Summit</h2>
-                            <p>
-                                Aral Culture Summit brings together local and international activists, artists and scientists to explore and implement ecological, social and cultural pathways to sustainable development of Karakalpakstan.
-                            </p>
-                            <p>
-                                It will act as both an itinerant platform for exchanging ideas and a placemaking initiative to revive the regional landscape and strengthen the community identity, while attracting new businesses that align with the principles of circular economy, creating sustainable economic growth.
-                            </p>
-                        </div>
-                        <div class="text_block">
-                            <h2>The Mission</h2>
-                            <p>
-                                Aral Culture Summit aims to draw attention to the ecological challenges and opportunities in and around Karakalpakstan, empower and unite the local community, and evolve the region into an environmentally sustainable and culturally enriching destination.
-                            </p>
+                        <div class="header-actions d-flex align-items-center flex-row flex-lg-column">
+                            <div class="toggle"></div>
+                            <div class="languages ml-4 ml-lg-0 mt-lg-4 py-4 py-lg-0 my-md-0 d-flex text-center">
+                                <?php foreach ($languages as $code => $label): ?>
+                                    <a rel="alternate" hreflang="<?= strtoupper($code) ?>" href="<?= Url::current(['language' => $code]) ?>" class="d-block <?= $code === $language ? 'active' : '' ?>">
+                                        <?= strtoupper($code) ?>
+                                    </a>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="embed-responsive">
-                        <iframe width="100%" height="700" src="https://www.youtube.com/embed/ShbkMi0sIAI?si=8qWELUYukPF66h9y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                    <div class="hero-container px-3 px-md-5 py-3 p-md-5">
+                        <div class="logo-container">
+                            <img class="w-50" src="<?= Html::encode($logo) ?>" alt="Logo">
+                        </div>
+                        <div class="reg_button_container mt-4 mt-md-5 pl-1 pl-md-2">
+                            <button class="reg_button" data-bs-toggle="modal" data-bs-target="#registerModal">
+                                <?= Yii::t('app', 'Register now') ?> ↘
+                            </button>
+                        </div>
+
+                        <div class="container hero-text">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <p><?= Yii::t('app', 'A future for the planet <br>and Karakalpakstan') ?></p>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <p class="text-end"><?= Yii::t('app', 'Autumn<br>2026') ?></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="social_media_links">
+                            <?php if (!empty($social_links)): ?>
+                                <?php foreach ($social_links as $social_link): ?>
+                                    <a href="<?= $social_link->link ?>" class="social_link" title="<?= $social_link->name ?>" target="_blank" aria-label="<?= $social_link->name ?>">
+                                        <i class="<?= $social_link->class ?> fa-2x"></i>
+                                    </a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<?= Program::widget()?>
+                <div class="hero_content d-flex">
+                    <div class="hero_content_header">
+                        <span><?= Yii::t('app', 'Overview') ?></span>
+                    </div>
+                    <div class="main_content">
+                        <?php if (!empty($hero)): ?>
+                            <div class="main_section_hero p-md-5 p-3">
+                                <div class="introduction_block">
+                                    <div class="introduction_block_title">
+                                        <p><?= $hero->title ?></p>
+                                    </div>
+                                    <div class="introduction_content">
+                                        <?php $image = StaticFunctions::getImage($hero->image, 'page-sections', $hero->id) ?>
+                                        <div class="image">
+                                            <a href="<?= $image ?>" data-fancybox="gallery" class="d-flex align-items-center w-100">
+                                                <img src="<?= $image ?>" width="75%">
+                                            </a>
+                                        </div>
+                                        <?= $hero->content ?>
+                                    </div>
+                                    <div class="embed-responsive">
+                                        <?= $youtube_link ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </section>
 
-<?= Location::widget()?>
+        <?php elseif ($section->name == 'program'): ?>
+            <section class="menu_bar <?=$section->name?> pb-0 pb-lg-5 <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>" >
+                <?= Program::widget()?>
+            </section>
 
-<?= Research::widget()?>
+        <?php elseif ($section->name == 'location'): ?>
+            <section class="menu_bar <?=$section->name?> pb-0 pb-lg-5 <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>" >
+                <?= Location::widget() ?>
+            </section>
 
-<?= Archive::widget()?>
+        <?php elseif ($section->name == 'research'): ?>
+            <section class="menu_bar <?=$section->name?> pb-0 pb-lg-5 <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>" >
+
+                <div class="section_header">
+                    <p class="first_title"><?=Yii::t('app', 'Research')?></p>
+                </div>
+                <div class="main_section">
+                    <div class="main_section_header">
+                        <?= SectionLogo::widget()?>
+                        <div class="header_navigation">
+                            <ul>
+                                <li>
+                                    <a href="#books" class="navigation_link scroll-link">
+                                        <?=Yii::t('app', 'Books')?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#articles" class="navigation_link scroll-link">
+                                        <?=Yii::t('app', 'Articles')?>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="nav_link back_link">
+                                        ← <?=Yii::t('app', 'Back')?>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="main_section_hero">
+
+                        <div class="research_books" id="books">
+                            <h2 class="section_title">
+                                <?=Yii::t('app', 'Books')?>
+                            </h2>
+                            <div class="research_header">
+                                <div class="col">
+                                    <?=Yii::t('app', 'Name')?>
+                                </div>
+                                <div class="col">
+                                    <?=Yii::t('app', 'Author')?>
+                                </div>
+                                <div class="col">
+                                    <?=Yii::t('app', 'Access')?>
+                                </div>
+                            </div>
+
+                            <?php if(!empty($books)): ?>
+
+                                <div class="books_accordion">
+
+                                    <?php foreach ($books as $book): ?>
+
+                                        <?php
+                                            $file = FileUpload::getFile($book->file, 'books', $book->id);
+                                            $image = StaticFunctions::getImage($book->image, 'books', $book->id);
+                                        ?>
+
+                                        <div class="accordion_item">
+                                            <div class="accordion_header">
+                                                <div class="accordion_name">
+                                                    <?=$book->name?>
+                                                </div>
+                                                <div class="accordion_author">
+                                                    <?=$book->author?>
+                                                </div>
+                                                <div class="accordion_actions">
+                                                    <ul class="actions">
+                                                        <li>
+                                                            <a href="<?=$book->link?>" class="action_link" target="_blank">
+                                                                <?=Yii::t('app', 'Buy')?> ↗
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="<?=$file?>" class="action_link" target="_blank">
+                                                                <?=Yii::t('app', 'Download')?>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    <button type="button" class="accordion_open" data-text-open="<?=Yii::t('app', 'Read less')?>" data-text-closed="Read more">
+                                                        <?=Yii::t('app', 'Read more')?>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="accordion_content">
+                                                <div class="content_row row">
+                                                    <div class="col-xl-6 col-12">
+                                                        <div class="accordion_texts">
+                                                            <?=$book->description?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6 col-12">
+                                                        <div class="accordion_image">
+                                                            <img src="<?=$image?>" alt="<?=$book->name?>">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <?php endforeach; ?>
+
+                                </div>
+
+                            <?php endif; ?>
+
+                        </div>
+
+                        <div class="research_articles" id="articles">
+                            <h2 class="section_title">
+                                <?=Yii::t('app', 'Articles')?>
+                            </h2>
+                            <?php if(!empty($articles)): ?>
+
+                                <div class="articles_row row">
+
+                                    <?php foreach ($articles as $article): ?>
+
+                                        <?php
+                                        $preview = StaticFunctions::getThumbnail($article->image, 'articles', $article->id);
+
+                                        $timestamp = strtotime($article->created_at);
+                                        $lang = Yii::$app->language;
+                                        $day = date('d', $timestamp);
+                                        $monthNum = (int)date('n', $timestamp);
+                                        $year = date('Y', $timestamp);
+
+                                        $monthName = Yii::$app->params['months'][$lang][$monthNum] ?? date('F', $timestamp);
+                                        ?>
+
+                                        <div class="col-md-6 g-5">
+                                            <div class="article">
+                                                <div class="article_image">
+                                                    <img src="<?= $preview ?>" alt="<?= $article->title ?>">
+                                                </div>
+                                                <div class="article_date">
+                                                    <?= $monthName . ' ' . $day . ', ' . $year ?>
+                                                </div>
+                                                <div class="article_title">
+                                                    <?= $article->title ?>
+                                                </div>
+                                                <button type="button" class="article_link" data-id="<?= $article->id ?>">
+                                                    <?= Yii::t('app', 'Read article') ?>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    <?php endforeach; ?>
+
+
+                                </div>
+
+                            <?php endif; ?>
+
+                        </div>
+                    </div>
+
+                    <div class="article_section"></div>
+
+                </div>
+
+            </section>
+
+        <?php elseif ($section->name == 'archive'): ?>
+            <section class="menu_bar <?=$section->name?> pb-0 pb-lg-5 <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>" >
+
+                <div class="section_header">
+                    <p class="first_title"><?=Yii::t('app', 'Archive')?></p>
+                </div>
+                <div class="main_section">
+                    <div class="main_section_header">
+
+                        <?=SectionLogo::widget()?>
+
+                        <div class="header_navigation">
+                            <ul>
+                                <?php foreach ($years as $year): ?>
+                                    <li>
+                                        <button type="button"
+                                                class="navigation_link<?= ($year == $activeYear) ? ' active' : '' ?>"
+                                                data-year="<?= $year ?>">
+                                            <?= $year ?>
+                                        </button>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <?php if(!empty($archive_hero)): ?>
+
+                        <?php $image = StaticFunctions::getImage($archive_hero->image, 'page-sections', $archive_hero->id) ?>
+                        <div class="section_content">
+                            <div class="section_title">
+                                <?=$archive_hero->title?>
+                            </div>
+                            <div class="section_image">
+                                <a href="<?= $image ?>" class="w-100" data-fancybox="gallery" data-caption="<?= htmlspecialchars($archive_hero->title, ENT_QUOTES) ?>">
+                                    <img src="<?= $image ?>" alt="<?= htmlspecialchars($archive_hero->title, ENT_QUOTES) ?>">
+                                </a>
+                            </div>
+
+                            <div class="archive_content">
+                                <?=$archive_hero->content?>
+                            </div>
+                        </div>
+
+                    <?php endif; ?>
+
+                    <?php if (!empty($archive_events) && !empty($tags)): ?>
+                        <div class="archive_articles">
+                            <?php foreach ($tags as $tag): ?>
+                                <?php
+                                $tagEvents = array_filter($archive_events, function($event) use ($tag) {
+                                    return $event->tag_id == $tag->id;
+                                });
+                                ?>
+
+                                <?php if (!empty($tagEvents)): ?>
+                                    <div class="archive_block">
+                                        <div class="block_title">
+                                            <?= Html::encode($tag->title) ?>
+                                        </div>
+                                        <div class="archives">
+                                            <?php foreach ($tagEvents as $event): ?>
+                                                <div class="archive">
+                                                    <button type="button" class="archive_name" data-id="<?= $event->id ?>">
+                                                        <?= Html::encode($event->title) ?>
+                                                    </button>
+                                                    <div class="archive_type">
+                                                        <?= Html::encode($event->tag->title) ?>
+                                                    </div>
+                                                    <div class="archive_time">
+                                                        <?= Yii::$app->formatter->asTime($event->start_time, 'php:H:i') ?> - <?= Yii::$app->formatter->asTime($event->end_time, 'php:H:i') ?>
+                                                    </div>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+
+
+                    <div class="locations_archive">
+                        <div class="section_title">
+                            <?=Yii::t('app', 'Locations')?>
+                        </div>
+                        <?php if(!empty($old_locations)): ?>
+
+                            <div class="locations_row">
+
+                                <?php foreach ($old_locations as $location): ?>
+
+                                    <?php $image = StaticFunctions::getImage($location->image, 'locations', $location->id) ?>
+
+                                    <div class="row archive_location">
+                                        <div class="col-xl-6 col-12">
+                                            <div class="location_content">
+                                                <div class="location_name">
+                                                    <?=$location->title?>
+                                                </div>
+                                                <div class="location_details">
+                                                    <?=$location->content?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-12">
+                                            <div class="location_image">
+                                                <img src="<?=$image?>" alt="<?=$location->title?>">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <?php endforeach; ?>
+
+                            </div>
+
+                        <?php endif; ?>
+
+                    </div>
+
+                    <div class="partners archive">
+                        <div class="partners_title">
+                            <?=Yii::t('app', 'Aral Culture Summit Partners')?>
+                        </div>
+                        <?php if(!empty($partners)): ?>
+                            <div class="partners_logo">
+                                <?php foreach ($partners->galleryItems as $partner): ?>
+                                    <?php $image = StaticFunctions::getImage($partner->image, 'page-sections', $partners->id) ?>
+                                    <div class="partner_logo">
+                                        <img src="<?=$image?>" alt="partner">
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="archive_article">
+                        <div class="article_title">
+                            Charting Water Futures
+                        </div>
+                        <div class="article_description">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore meat
+                            agna aliquam erat volutpat. Ut wisi enim ad minim veniam,
+                            quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet doloresun magna aliquam erat volutpat.
+                        </div>
+                        <div class="article_infos">
+                            <div class="info_item">
+                                <div class="inner_item">
+                                    <div class="info_title">
+                                        4TH OF APRIL
+                                    </div>
+                                    <div class="info_description fw-bolder">
+                                        11:00 – 12:00
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info_item">
+                                <div class="inner_item">
+                                    <div class="info_title">
+                                        ATTENDEES
+                                    </div>
+                                    <div class="info_description">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info_item">
+                                <div class="inner_item">
+                                    <div class="info_title">
+                                        NABI AGZAMOV
+                                    </div>
+                                    <div class="info_description">
+                                        Architect, Researcher at 5th Studio, Uzbekistan/Great Britain
+                                    </div>
+                                </div>
+                                <div class="inner_item">
+                                    <div class="info_title">
+                                        AHMED AND RASHID BIN SHABIB
+                                    </div>
+                                    <div class="info_description">
+                                        Founders of Brownbook and architects of interdisciplinary projects rethinking the circulation of materials and ideas in urbanism
+                                    </div>
+                                </div>
+                                <div class="inner_item">
+                                    <div class="info_title">
+                                        VLADIM SOKOLOV
+                                    </div>
+                                    <div class="info_description">
+                                        Head of the Project Implementation Agency of the International Fund for Saving the Aral Sea (IFAS), Uzbekistan
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="article_texts">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisiimi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolorm
+                                in hendrerit in vulputate velit esse molstie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonum. Loremim ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eui Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wismi enim ad minim veniam, quis nostrudi exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan
+                                et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisiimi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolorm
+                                in hendrerit in vulputate velit esse molstie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonum. Loremim ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eui Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wismi enim ad minim veniam, quis nostrudi exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan
+                                et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat
+                            </p>
+                        </div>
+                        <div class="gallery swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="slide_item">
+                                        <img src="/images/location_1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide_item">
+                                        <img src="/images/location_1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide_item">
+                                        <img src="/images/location_1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide_item">
+                                        <img src="/images/location_1.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Навигационные кнопки -->
+                            <div class="swiper_navs">
+                                <div class="slide_prev">
+                                    <i class="fas fa-arrow-left"></i>
+                                </div>
+                                <div class="slide_next">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+
+
 
 
 

@@ -92,7 +92,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $row = (new Query())
             ->from('auth_assignment')
-            ->where(['user_id' => \Yii::$app->user->getId()])
+            ->where(['user_id' => Yii::$app->user->getId()])
             ->one();
         if($row){
             return $row['item_name'];
@@ -100,6 +100,11 @@ class User extends ActiveRecord implements IdentityInterface
         else {
             return 'guest';
         }
+    }
+
+    public static function isSuperadmin(): bool
+    {
+        return isset(Yii::$app->authManager->getRolesByUser(Yii::$app->user->id)['superadmin']);
     }
 
     /**
