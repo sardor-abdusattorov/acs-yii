@@ -61,8 +61,9 @@ return [
             ],
         ],
         'request' => [
+            'enableCsrfValidation' => false,
             'csrfParam' => '_csrf-backend',
-            'baseUrl' => '',
+            'baseUrl' => '/admin',
         ],
         'formatter' => [
             'datetimeFormat' => 'php:H:i',

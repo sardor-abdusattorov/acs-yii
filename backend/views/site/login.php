@@ -24,8 +24,6 @@ $this->title = 'Login';
                             <span class="logo-lg">
                                <img src="<?=Yii::getAlias('@web') ?>/dist/img/logo.png" alt="logo" style="max-width: 250px">
                             </span>
-
-                            <?=Yii::getAlias('@web') ?>
                         </div>
                     </div>
                 </div>
