@@ -55,9 +55,6 @@ return [
             'enableLanguagePersistence' => true,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'excludedRoutes' => [
-                'admin/*',
-            ],
             'rules' => [
                 '/' => 'site/index',
                 '<action:(index|help-center)>' => 'site/<action>',
@@ -65,8 +62,18 @@ return [
                 '<controller>/<action>' => '<controller>/<action>',
                 '<controller>' => '<controller>/index',
             ],
-        ],
+            'on beforeRequest' => function ($event) {
+                $request = Yii::$app->request;
+                $pathInfo = $request->getPathInfo();
 
+                // Если URL начинается с admin — отключаем поведение локализации
+                if (strpos($pathInfo, 'admin') === 0) {
+                    Yii::$app->urlManager->languages = [];  // отключаем языки
+                    Yii::$app->urlManager->enableDefaultLanguageUrlCode = false;
+                    Yii::$app->urlManager->enableLanguagePersistence = false;
+                }
+            },
+        ],
     ],
     'params' => $params,
 ];
