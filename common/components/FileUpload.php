@@ -44,8 +44,11 @@ class FileUpload
         return $filename;
     }
 
-    public static function getFile(string $filename, string $modelType, int $modelId)
+    public static function getFile(?string $filename, string $modelType, int $modelId)
     {
+        if (empty($filename)) {
+            return false;
+        }
         $filePath = self::getFolder($modelType, $modelId) . $filename;
 
         if (is_file($filePath)) {

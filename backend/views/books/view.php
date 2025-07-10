@@ -1,5 +1,7 @@
 <?php
 
+use common\components\FileUpload;
+use common\components\StaticFunctions;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -30,11 +32,76 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-                    'id',
-            'image',
-            'file',
+            'id',
+            [
+                'label' => 'Автор (переводы)',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    $output = '';
+                    foreach (Yii::$app->params['languages'] as $lang => $label) {
+                        $title = $model->translate($lang)->author ?? '<i>Не указано</i>';
+                        $output .= "<strong>{$label}:</strong> " . Html::decode($title) . '<br>';
+                    }
+                    return $output;
+                }
+            ],
+            [
+                'label' => 'Название (переводы)',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    $output = '';
+                    foreach (Yii::$app->params['languages'] as $lang => $label) {
+                        $title = $model->translate($lang)->name ?? '<i>Не указано</i>';
+                        $output .= "<strong>{$label}:</strong> " . Html::decode($title) . '<br>';
+                    }
+                    return $output;
+                }
+            ],
+            [
+                'label' => 'Описание (переводы)',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    $output = '';
+                    foreach (Yii::$app->params['languages'] as $lang => $label) {
+                        $title = $model->translate($lang)->description ?? '<i>Не указано</i>';
+                        $output .= "<strong>{$label}:</strong> " . Html::decode($title) . '<br>';
+                    }
+                    return $output;
+                }
+            ],
+            [
+                'attribute'=>'image',
+                'value'=>function($data){
+                    $image = StaticFunctions::getImage($data->image,'books',$data->id);
+                    return "<img src='$image' style='max-height: 150px' alt='<?=$data->image?>'>";
+                },
+                'format'=>"html"
+            ],
+            [
+                'label' => 'Файл',
+                'format' => 'raw',
+                'value' => function($model) {
+                    if ($model->file) {
+                        $url = FileUpload::getFile($model->file, 'books', $model->id);
+                        if ($url) {
+                            $basename = basename($model->file);
+                            return Html::a('Скачать файл', $url, ['target' => '_blank', 'download' => $basename]);
+                        } else {
+                            return '<i>Файл не найден</i>';
+                        }
+                    }
+                    return '<i>Нет файла</i>';
+                }
+            ],
+
             'link',
-            'status',
+            [
+                'attribute' => 'status',
+                'format' => 'html',
+                'value' => $model->status == 1
+                    ? '<span class="btn btn-success">Активный</span>'
+                    : '<span class="btn btn-secondary">Неактивный</span>',
+            ],
             'order_by',
             'created_at',
             'updated_at',
