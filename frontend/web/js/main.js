@@ -204,8 +204,10 @@ $(document).ready(function(e){
     });
 
     $('.hero .hero_content').on('click', function(e) {
-
-    })
+        let menuWidth = $('.menu_bar.hero').data('width') || 180;
+        $('.menu_bar').removeClass('opened').removeAttr('style');
+        $('.hero').addClass('opened').css('width', `calc(100% - ${menuWidth}px)`);
+    });
 
     $('.section_header').on('click', function () {
         const bar = $(this).closest('.menu_bar');
@@ -215,21 +217,21 @@ $(document).ready(function(e){
         if (window.innerWidth >= 992) {
             if (bar.hasClass('opened')) {
                 bar.removeClass('opened');
-                bar.removeAttr('style'); // ОЧИЩАЕМ СТИЛЬ у закрываемой
+                bar.removeAttr('style');
                 hero.addClass('opened');
                 return;
             }
 
-            $('.menu_bar').removeClass('opened').removeAttr('style'); // ОЧИЩАЕМ СТИЛИ у всех
+            $('.menu_bar').removeClass('opened').removeAttr('style');
             bar.addClass('opened').css('width', `calc(100% - ${menuWidth}px)`);
             hero.removeClass('opened');
         } else {
             if (bar.hasClass('opened')) {
                 bar.removeClass('opened');
-                bar.removeAttr('style'); // ОЧИЩАЕМ СТИЛЬ у закрываемой
+                bar.removeAttr('style');
                 hero.removeClass('mobile-opened');
             } else {
-                $('.menu_bar.opened').removeClass('opened').removeAttr('style'); // ОЧИЩАЕМ СТИЛИ у открытых
+                $('.menu_bar.opened').removeClass('opened').removeAttr('style');
                 bar.addClass('opened').css('width', `calc(100% - ${menuWidth}px)`);
                 hero.addClass('mobile-opened');
             }
