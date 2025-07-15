@@ -50,7 +50,9 @@ use yii\helpers\Html;
 
 
         <div class="reg_button_container">
-            <button class="reg_button" data-bs-toggle="modal" data-bs-target="#registerModal"><?=Yii::t('app', 'Register now')?> ↘</button>
+            <a href="https://95a8f6e7.sibforms.com/serve/MUIFAFNnFlzJwGA0A0f7_DNLkzMeFt3lSeDkMU0Nev9O7WE8y3xupK0e3j4DmHphBPHHDWHiyUoX6TgPAtkcnZowNNA6SYkJIzdTZdB8lHVoYOLBB8TkBhesW0CsZJogWX3TdfTv71RKgpSEjmljKTaPMoTceo5JIQDPfmyv5UvTY6fdi7ExLEYwNHwDx6JUf5Cr2REOV9BhQw08?fbclid=PAZXh0bgNhZW0CMTEAAaeg_ouLeE3RoIBcLCUCruASNTOIkYyKaAp5f6HT7xa9Tfkpy4FAELFbPV7Wjg_aem_nV-i_lS5aLrL6lJW8rFsjA&clckid=daa04bb0" class="reg_button" target="_blank">
+                <?=Yii::t('app', 'Subscribe to newsletter')?> ↘
+            </a>
         </div>
     </div>
 

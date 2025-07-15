@@ -2,10 +2,8 @@
 
 use common\components\FileUpload;
 use common\components\StaticFunctions;
-use frontend\widgets\Archive;
 use frontend\widgets\Location;
 use frontend\widgets\Program;
-use frontend\widgets\Research;
 use frontend\widgets\SectionLogo;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -13,6 +11,10 @@ use yii\helpers\Url;
 
 $languages = Yii::$app->params['languages'];
 $language = Yii::$app->language;
+
+$tabWidth = 60;
+$menuTabCount = count(array_filter($sections, fn($section) => !$section->is_opened && $section->status == 1));
+$totalMenuWidth = $menuTabCount * $tabWidth;
 
 switch ($language) {
     case 'ru':
@@ -36,7 +38,8 @@ $youtube_link = $settings['youtube_link'] ?? '';
 <?php if (!empty($sections)): ?>
     <?php foreach ($sections as $section): ?>
         <?php if ($section->name == 'hero'): ?>
-            <section class="menu_bar <?= $section->name ?> <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>">
+            <section data-width="<?= $totalMenuWidth ?>" class="menu_bar <?= $section->name ?> <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>"
+                <?= $section->is_opened == 1 ? 'style="width: calc(100% - '.$totalMenuWidth.'px);"' : '' ?>>
 
                 <div class="wrapper_header_hero d-flex" style="background-image: url('/images/hero_background_image.png')">
                     <div class="main_header pt-lg-5 d-flex align-items-center flex-row flex-lg-column">
@@ -58,14 +61,14 @@ $youtube_link = $settings['youtube_link'] ?? '';
                         </div>
                     </div>
 
-                    <div class="hero-container px-3 px-md-5 py-3 p-md-5">
+                    <div class="hero-container">
                         <div class="logo-container">
                             <img class="w-50" src="<?= Html::encode($logo) ?>" alt="Logo">
                         </div>
                         <div class="reg_button_container mt-4 mt-md-5 pl-1 pl-md-2">
-                            <button class="reg_button" data-bs-toggle="modal" data-bs-target="#registerModal">
-                                <?= Yii::t('app', 'Register now') ?> ↘
-                            </button>
+                            <a href="https://95a8f6e7.sibforms.com/serve/MUIFAFNnFlzJwGA0A0f7_DNLkzMeFt3lSeDkMU0Nev9O7WE8y3xupK0e3j4DmHphBPHHDWHiyUoX6TgPAtkcnZowNNA6SYkJIzdTZdB8lHVoYOLBB8TkBhesW0CsZJogWX3TdfTv71RKgpSEjmljKTaPMoTceo5JIQDPfmyv5UvTY6fdi7ExLEYwNHwDx6JUf5Cr2REOV9BhQw08?fbclid=PAZXh0bgNhZW0CMTEAAaeg_ouLeE3RoIBcLCUCruASNTOIkYyKaAp5f6HT7xa9Tfkpy4FAELFbPV7Wjg_aem_nV-i_lS5aLrL6lJW8rFsjA&clckid=daa04bb0" class="reg_button" target="_blank">
+                                <?=Yii::t('app', 'Subscribe to newsletter')?> ↘
+                            </a>
                         </div>
 
                         <div class="container hero-text">
@@ -98,7 +101,7 @@ $youtube_link = $settings['youtube_link'] ?? '';
                     </div>
                     <div class="main_content">
                         <?php if (!empty($hero)): ?>
-                            <div class="main_section_hero p-md-5 p-3">
+                            <div class="main_section_hero">
                                 <div class="introduction_block">
                                     <div class="introduction_block_title">
                                         <p><?= $hero->title ?></p>
@@ -107,7 +110,7 @@ $youtube_link = $settings['youtube_link'] ?? '';
                                         <?php $image = StaticFunctions::getImage($hero->image, 'page-sections', $hero->id) ?>
                                         <div class="image">
                                             <a href="<?= $image ?>" data-fancybox="gallery" class="d-flex align-items-center w-100">
-                                                <img src="<?= $image ?>" width="75%">
+                                                <img src="<?= $image ?>" width="75%" alt="image">
                                             </a>
                                         </div>
                                         <?= $hero->content ?>
@@ -123,17 +126,20 @@ $youtube_link = $settings['youtube_link'] ?? '';
             </section>
 
         <?php elseif ($section->name == 'program'): ?>
-            <section class="menu_bar <?=$section->name?> pb-0 pb-lg-5 <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>" >
+            <section data-width="<?= $totalMenuWidth ?>" class="menu_bar <?= $section->name ?> <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>"
+                <?= $section->is_opened == 1 ? 'style="width: calc(100% - '.$totalMenuWidth.'px);"' : '' ?>>
                 <?= Program::widget()?>
             </section>
 
         <?php elseif ($section->name == 'location'): ?>
-            <section class="menu_bar <?=$section->name?> pb-0 pb-lg-5 <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>" >
+            <section data-width="<?= $totalMenuWidth ?>" class="menu_bar <?= $section->name ?> <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>"
+                <?= $section->is_opened == 1 ? 'style="width: calc(100% - '.$totalMenuWidth.'px);"' : '' ?>>
                 <?= Location::widget() ?>
             </section>
 
         <?php elseif ($section->name == 'research'): ?>
-            <section class="menu_bar <?=$section->name?> pb-0 pb-lg-5 <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>" >
+            <section data-width="<?= $totalMenuWidth ?>" class="menu_bar <?= $section->name ?> <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>"
+                <?= $section->is_opened == 1 ? 'style="width: calc(100% - '.$totalMenuWidth.'px);"' : '' ?>>
 
                 <div class="section_header">
                     <p class="first_title"><?=Yii::t('app', 'Research')?></p>
@@ -202,18 +208,25 @@ $youtube_link = $settings['youtube_link'] ?? '';
                                                 </div>
                                                 <div class="accordion_actions">
                                                     <ul class="actions">
-                                                        <li>
-                                                            <a href="<?=$book->link?>" class="action_link" target="_blank">
-                                                                <?=Yii::t('app', 'Buy')?> ↗
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="<?=$file?>" class="action_link" target="_blank">
-                                                                <?=Yii::t('app', 'Download')?>
-                                                            </a>
-                                                        </li>
+
+                                                        <?php if (!empty($book->link)): ?>
+                                                            <li>
+                                                                <a href="<?=$book->link?>" class="action_link" target="_blank">
+                                                                    <?=Yii::t('app', 'Buy')?> ↗
+                                                                </a>
+                                                            </li>
+                                                        <?php endif; ?>
+
+                                                        <?php if (!empty($book->file)): ?>
+                                                            <li>
+                                                                <a href="<?=$file?>" class="action_link" target="_blank">
+                                                                    <?=Yii::t('app', 'Download')?>
+                                                                </a>
+                                                            </li>
+                                                        <?php endif; ?>
+
                                                     </ul>
-                                                    <button type="button" class="accordion_open" data-text-open="<?=Yii::t('app', 'Read less')?>" data-text-closed="Read more">
+                                                    <button type="button" class="accordion_open" data-text-open="<?=Yii::t('app', 'Read less')?>" data-text-closed="<?=Yii::t('app', 'Read more')?>">
                                                         <?=Yii::t('app', 'Read more')?>
                                                     </button>
                                                 </div>
@@ -298,7 +311,8 @@ $youtube_link = $settings['youtube_link'] ?? '';
             </section>
 
         <?php elseif ($section->name == 'archive'): ?>
-            <section class="menu_bar <?=$section->name?> pb-0 pb-lg-5 <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>" >
+            <section data-width="<?= $totalMenuWidth ?>" class="menu_bar <?= $section->name ?> <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>"
+                <?= $section->is_opened == 1 ? 'style="width: calc(100% - '.$totalMenuWidth.'px);"' : '' ?>>
 
                 <div class="section_header">
                     <p class="first_title"><?=Yii::t('app', 'Archive')?></p>

@@ -89,14 +89,21 @@ $languages = Yii::$app->params['languages'];
                         'allowedFileExtensions' => ['pdf', 'doc', 'docx', 'epub'],
                         'previewFileType' => 'any'
                     ],
-                ]) ?>
+                ])
+                    ->hint('Если не загрузите файл — кнопка "Download" отображаться не будет') ?>
             </div>
         </div>
     </div>
     <div class="col-md-4 col-12">
         <div class="card">
             <div class="card-body">
-                <?= $form->field($model, 'link')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'link')
+                    ->textInput([
+                        'maxlength' => true,
+                        'placeholder' => 'Если заполнено — будет кнопка "Buy"',
+                        'title' => 'Оставьте пустым, если не нужна кнопка "Buy"'
+                    ])
+                    ->hint('Оставьте поле пустым, если не хотите показывать кнопку «Buy»') ?>
 
                 <?= $form->field($model, 'order_by')->textInput([
                     'placeholder' => 'Укажите порядок сортировки (например, 10, 20, 30...)'

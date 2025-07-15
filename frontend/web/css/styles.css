@@ -39,12 +39,12 @@ body.night a {
 }
 .wrapper_header_hero {
       height: 100vh;
-      border-right: 1px solid var(--acs-sand);
       background-color: #939EA0;
       background-image: url("/acs/images/hero_background_image.png");
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
+      position: relative;
 }
 
 body.night .wrapper_header_hero
@@ -52,7 +52,7 @@ body.night .wrapper_header_hero
       border-color: var(--acs-sand);
 }
 .main_header {
-      width: 75px;
+      width: 60px;
       border-right: 1px solid transparent;
 }
 .main_header .mobile_logo{
@@ -129,7 +129,7 @@ body.night .languages a {
       background-color: #939EA0;
 }
 .hero-container {
-      width: calc(100% - 75px);
+      width: calc(100% - 60px);
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -179,6 +179,7 @@ body.night .reg_button
       margin-bottom: auto;
       color: var(--acs-sand);
       padding-right: 17px;
+      cursor: pointer;
 }
 
 body.night .social_media_links a
@@ -190,7 +191,16 @@ body.night .social_media_links a
       background-color: var(--acs-sand);
       /*color: var(--acs-black);*/
 }
-
+.hero .hero_content{
+      background-image: url(/images/hero_background_image.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+      background-position: center;
+}
+.hero.opened .hero_content{
+      background-image: none;
+}
 body.night table
 {
       color: var(--acs-sand);
@@ -200,34 +210,26 @@ body.night .hero_content {
       background-color: var(--acs-night);
 }
 .hero_content .hero_content_header{
-      width: 75px;
+      width: 60px;
       background-color: #fff;
       background-image: none;
       background-position: left;
       background-repeat: no-repeat;
       background-size: cover;
       transition: .5s all ease;
+      display: none;
 }
 .hero_content .hero_content_header span{
       display: none;
-}
-.hero.opened .hero_content .hero_content_header
-{
-      background-image: url(/images/hero_background_image.png);
 }
 
 body.night .hero_content .hero_content_header
 {
       border-right: 1px solid var(--acs-sand);
 }
-
-.hero_content .main_content
-{
-      flex: 0 0 auto;
-      width: calc(100% - 75px);
-}
 .hero_content .main_content .main_section_hero{
       margin-bottom: 100px;
+      padding: 60px 115px 60px 190px;
 }
 
 /* Hero section */
@@ -272,9 +274,10 @@ body.night .introduction {
 }
 
 .section_header .first_title {
-      position: absolute;
-      left: 50%;
-      margin-left: -12.5px;
+      position: sticky;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
       top: 50px;
 }
 
@@ -330,7 +333,7 @@ margin-bottom: 20px;
 }
 
 .introduction_block .introduction_block_title p {
-      text-align: center;
+      text-align: left;
       font-family: "Exposure_+80", sans-serif;
       font-size: 45px;
       font-style: normal;
@@ -361,7 +364,6 @@ margin-bottom: 20px;
 }
 .introduction_block .introduction_content .text_block{
       max-width: 50%;
-      padding-left: 115px;
 }
 .introduction_block .introduction_content .text_block:not(:last-child){
       margin-bottom: 50px;
@@ -427,13 +429,11 @@ body.night .border-top-dotted {
 }
 
 .menu_bar{
-      overflow: hidden;
-      width: 75px;
+      overflow: clip;
+      width: 60px;
       transition: all .5s ease;
-      border: 1px solid transparent;
-      border-top: none;
-      border-bottom: none;
-      border-left: none;
+      border: 1px none transparent;
+      border-right-style: solid;
       position: relative;
       background-color: #fff;
 }
@@ -443,8 +443,11 @@ body.night .border-top-dotted {
 .menu_bar.opened .main_content{
       display: block;
 }
-.menu_bar:first-child{
-      border-left-width: 2px;
+.menu_bar.hero{
+      border: none;
+}
+body.night .menu_bar.hero{
+      border-right: 1px solid transparent;
 }
 .menu_bar:last-child{
       border-right-width: 2px;
@@ -453,14 +456,14 @@ body.dark .menu_bar{
       border-color: var(--Acs-sand);
 }
 .menu_bar.opened{
-      width: calc(100% - 300px);
+      width: calc(100% - 240px);
 }
 .menu_bar .section_header {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      width: 75px;
+      width: 60px;
       cursor: pointer;
       height: 100%;
 }
@@ -470,7 +473,17 @@ body.dark .menu_bar{
 }
 .menu_bar .main_section{
       display: none;
-      padding: 75px 115px 75px 190px;
+      padding: 60px 115px 60px 190px;
+}
+.hero .main_header{
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+}
+.hero .hero-container{
+      width: 100%;
+      padding: 60px 115px 60px 190px;
 }
 .main_section_header{
       display: flex;
@@ -1466,17 +1479,25 @@ body.night .archive {
 }
 .books_accordion .accordion_item .accordion_header > div{
       flex: 0 0 auto;
-      width: calc(33.33% - 10px);
+      width: calc(37.5% - 10px);
       transition: .3s all ease;
+}
+
+.books_accordion .accordion_item .accordion_header .accordion_author{
+      flex: 0 0 auto;
+      width: 25%;
 }
 .books_accordion .accordion_item .accordion_actions{
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
 }
 .accordion_item .accordion_actions .actions{
       display: flex;
-      margin-right: 15px;
+      flex: 0 0 auto;
       align-items: center;
+      margin-left: auto;
 }
 .accordion_actions .action_link{
       display: flex;
@@ -1527,6 +1548,13 @@ body.night .archive {
 .accordion_item .accordion_content{
       margin-top: 50px;
       display: none;
+}
+.accordion_item .accordion_content .accordion_texts{
+      font-family: "Exposure_+10", sans-serif;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
 }
 .accordion_item .accordion_content h2,
 .accordion_item .accordion_content h3{
@@ -2091,15 +2119,22 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       .menu_bar .section_header{
             width: 60px;
       }
-      .menu_bar{
+      .menu_bar,
+      .main_header{
             width: 60px;
       }
       .menu_bar.opened{
             width: calc(100% - 240px);
       }
-      .menu_bar .main_section{
+      .menu_bar .main_section,
+      .hero .hero-container{
             padding: 50px 80px 50px 120px;
       }
+
+      .hero_content .main_content .main_section_hero{
+            padding: 50px 80px 50px 120px;
+      }
+
       .main_section .main_section_content{
             margin-bottom: 80px;
       }
@@ -2130,6 +2165,15 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
 @media all and (max-width: 1200px) {
       .archive_articles{
             margin-bottom: 70px;
+      }
+      .books_accordion .accordion_item{
+            padding: 20px 0;
+      }
+      .introduction_block .introduction_content .text_block{
+            max-width: 100%;
+      }
+      .hero-text{
+            font-size: 32px;
       }
       .archive_article .article_texts{
             margin-bottom: 80px;
@@ -2318,7 +2362,11 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       .event_title{
             font-size: 20px;
       }
-      .menu_bar .main_section{
+      .menu_bar .main_section,
+      .hero .hero-container{
+            padding: 40px 85px;
+      }
+      .hero_content .main_content .main_section_hero{
             padding: 40px 85px;
       }
       .main_section_content .section_title,
@@ -2384,6 +2432,10 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
 @media all and (max-width: 992px) {
       .wrapper section:not(:last-child){
             border-bottom: 1px solid transparent;
+            width: 100% !important;
+      }
+      .hero_content .hero_content_header{
+            display: block;
       }
       .archive_article .article_texts{
             margin-bottom: 60px;
@@ -2678,7 +2730,11 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
             width: 100%;
             height: auto;
       }
-      .menu_bar .main_section{
+      .menu_bar .main_section,
+      .hero .hero-container{
+            padding: 15px;
+      }
+      .hero_content .main_content .main_section_hero{
             padding: 15px;
       }
       .wrapper_header_hero{
@@ -2689,8 +2745,11 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
             flex-direction: column;
             min-height: auto;
       }
+      .hero{
+            background-color: var(--acs-sand);
+      }
       .main_header{
-            height: 75px;
+            height: 60px;
             width: 100%;
       }
       .languages{
@@ -2700,6 +2759,7 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       }
       .wrapper_header_hero .main_header{
             padding: 20px;
+            position: static;
             justify-content: space-between;
       }
       .wrapper_header_hero .main_header .mobile_logo{

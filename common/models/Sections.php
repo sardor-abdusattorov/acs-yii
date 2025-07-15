@@ -71,10 +71,25 @@ class Sections extends ActiveRecord
                     return false;
                 }
             }
+
+            if ($this->status == 0) {
+                $otherActiveExists = self::find()
+                    ->where(['status' => 1])
+                    ->andWhere(['<>', 'id', $this->id])
+                    ->exists();
+
+                if (!$otherActiveExists) {
+                    $this->addError('status', 'Должна быть хотя бы одна активная секция.');
+                    return false;
+                }
+            }
+            // *****************************************
+
             return true;
         }
         return false;
     }
+
 
 
     /**

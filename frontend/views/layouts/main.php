@@ -55,33 +55,33 @@ AppAsset::register($this);
     <?= Footer::widget()?>
 </main>
 
-<?= RegistrationForm::widget()?>
+<?php //= RegistrationForm::widget()?>
 
 <?php
 
-foreach (Yii::$app->session->getAllFlashes() as $type => $message) {
-    echo Growl::widget([
-        'type' => match ($type) {
-            'success' => Growl::TYPE_SUCCESS,
-            'danger', 'error' => Growl::TYPE_DANGER,
-            'warning' => Growl::TYPE_WARNING,
-            'info' => Growl::TYPE_INFO,
-            default => Growl::TYPE_INFO,
-        },
-        'title' => Yii::t('app', 'Notification'),
-        'icon' => 'fas fa-info-circle',
-        'body' => $message,
-        'showSeparator' => true,
-        'delay' => 0,
-        'pluginOptions' => [
-            'showProgressbar' => false,
-            'delay' => 3500,
-            'allow_dismiss' => false,
-            'placement' => ['from' => 'top', 'align' => 'right'],
-        ]
-    ]);
-}
-?>
+//foreach (Yii::$app->session->getAllFlashes() as $type => $message) {
+//    echo Growl::widget([
+//        'type' => match ($type) {
+//            'success' => Growl::TYPE_SUCCESS,
+//            'danger', 'error' => Growl::TYPE_DANGER,
+//            'warning' => Growl::TYPE_WARNING,
+//            'info' => Growl::TYPE_INFO,
+//            default => Growl::TYPE_INFO,
+//        },
+//        'title' => Yii::t('app', 'Notification'),
+//        'icon' => 'fas fa-info-circle',
+//        'body' => $message,
+//        'showSeparator' => true,
+//        'delay' => 0,
+//        'pluginOptions' => [
+//            'showProgressbar' => false,
+//            'delay' => 3500,
+//            'allow_dismiss' => false,
+//            'placement' => ['from' => 'top', 'align' => 'right'],
+//        ]
+//    ]);
+//}
+//?>
 
 <?php $this->endBody() ?>
 </body>
