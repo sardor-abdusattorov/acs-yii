@@ -27,7 +27,7 @@ switch ($language) {
 ?>
 
 <div class="section_logo">
-    <a href="<?= Url::to(['/', $language=>Yii::$app->language])?>" class="logo_link">
+    <a href="<?= Url::to(['/']) ?>" class="logo_link">
         <img class="logo_image_header dark" src="<?=$logoDark?>" alt="Logo">
         <img class="logo_image_header light" src="<?=$logoLight?>" alt="Logo">
     </a>

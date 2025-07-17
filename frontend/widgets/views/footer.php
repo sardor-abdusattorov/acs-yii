@@ -43,7 +43,7 @@ $acdf_email = $settings['acdf_email'] ?? '';
         <div class="d-flex align-items-start footer_row">
             <div class="footer_col">
                 <div class="footer_logo">
-                    <a class="d-block footer_logo" href="<?= Url::to(['/', $language=>Yii::$app->language])?>">
+                    <a class="d-block footer_logo" href="<?= Url::to(['/']) ?>">
                         <img src="<?= $logoDark ?>" alt="logo" class="logo_image_footer dark">
                         <img src="<?= $logoLight ?>" alt="logo" class="logo_image_footer light">
                     </a>

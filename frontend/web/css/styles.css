@@ -51,6 +51,14 @@ body.night a {
       position: fixed;
       cursor: pointer;
 }
+.article_content a{
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-skip-ink: none;
+      text-decoration-thickness: auto;
+      text-underline-offset: auto;
+      text-underline-position: from-font;
+}
 .hero.opened .wrapper_header_hero{
       height: 100vh;
       position: relative;
