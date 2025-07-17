@@ -2251,6 +2251,7 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       .hero_content .main_content iframe{
             height: 500px;
       }
+
 }
 
 @media all and (max-width: 1200px) {
