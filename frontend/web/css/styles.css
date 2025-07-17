@@ -48,7 +48,8 @@ body.night a {
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
-
+      position: fixed;
+      cursor: pointer;
 }
 .hero.opened .wrapper_header_hero{
       height: 100vh;
