@@ -43,3 +43,24 @@
     font-style: normal;
     font-display: swap;
 }
+
+
+/* GEORGIA FONT FAMILY */
+
+@font-face {
+    font-family: 'Georgia';
+    src: url('Georgia-Bold.eot');
+    src: local('Georgia Bold'), local('Georgia-Bold'),
+    url('/fonts/georgia/Georgia-Bold.woff') format('woff'),
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Georgia';
+    src: url('Georgia.eot');
+    src: local('Georgia'),
+    url('/fonts/georgia/Georgia.woff') format('woff'),
+    font-weight: normal;
+    font-style: normal;
+}

@@ -21,6 +21,10 @@ body {
       overscroll-behavior: none;
 }
 
+body.lang-ru{
+      font-family: "Georgia", sans-serif !important;
+}
+
 body.night {
       background-color: var(--acs-night);
       color: var(--acs-sand) !important;
@@ -38,15 +42,20 @@ body.night a {
       display: none;
 }
 .wrapper_header_hero {
-      height: 100vh;
+      height: 100%;
       background-color: #939EA0;
       background-image: url("/acs/images/hero_background_image.png");
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
-      position: relative;
-}
 
+}
+.hero.opened .wrapper_header_hero{
+      height: 100vh;
+      position: relative;
+      width: 100%;
+      cursor: default;
+}
 body.night .wrapper_header_hero
 {
       border-color: var(--acs-sand);
@@ -60,10 +69,6 @@ body.night .wrapper_header_hero
 }
 .main_header .mobile_logo img{
       height: 10px;
-}
-.hero.closed .main_header {
-      width: 100%;
-      border-right: 1px solid transparent;
 }
 body.night .main_header {
       border-color: var(--acs-sand);
@@ -81,6 +86,9 @@ body.night .main_header {
       border-bottom: 1px solid var(--Black);
       text-decoration: none;
 }
+body.lang-ru .languages a {
+      font-family: "Georgia", sans-serif;
+}
 
 body.night .languages a {
       border-color: var(--acs-sand);
@@ -88,6 +96,10 @@ body.night .languages a {
 
 .languages a.active {
       font-family: "Exposure_-40", sans-serif;
+}
+body.lang-ru .languages a.active{
+      font-family: "Georgia", sans-serif;
+      font-weight: bold;
 }
 
 .languages a:last-child {
@@ -122,6 +134,82 @@ body.night .languages a {
 {
       font-family: "Exposure_-40", sans-serif;
 }
+
+body.lang-ru .opened .section_header { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .section_header p { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .section_header .first_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .hero-text { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .reg_button { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .introduction_block .introduction_block_name p { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .introduction_block .introduction_block_title p { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .introduction_block .introduction_content { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .introduction_content h2 { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .introduction_content p { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .main_section_footer .page_info { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .main_section_footer .page_info span { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .footer .section_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .footer .contacts { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .footer .organisers { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .footer a { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .footer .policies a { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .section_inner_hero { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .full_program_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .event_day { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .event_time_location .event_time { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .event_time_location .event_location { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .event_type .event_type_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .event_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .event_description { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .partner_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .partner_description { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .press_kit_text { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .sun_btn { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .location_content h3 { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .location_content { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .location_item .location_content .image p { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .location_content .location_block h4 { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .research .filter_block a.active { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .research .filter_block a:hover { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .research table thead,
+body.lang-ru .research table tbody tr td:nth-child(2) { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .books_accordion .accordion_item .accordion_header { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .books_accordion .accordion_item .accordion_header .accordion_author { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .accordion_item .accordion_content .accordion_texts { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .accordion_item .accordion_content h2,
+body.lang-ru .accordion_item .accordion_content h3 { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .accordion_item .accordion_content { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .research_books .section_title,
+body.lang-ru .research_articles .section_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .research_articles .article .article_date { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .research_articles .article .article_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .research_articles .article .article_link { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .article_section .article_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .article_section .acticle_image p { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .article_section .article_content h2,
+body.lang-ru .article_section .article_content h3 { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .archive_articles .block_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .archive_articles .archive .archive_name { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .locations_archive .location_content .location_name { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .locations_archive .location_content .location_details { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .locations_archive .section_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .archive_article .article_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .archive_article .article_infos .info_item .info_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .archive_article .article_infos .info_item .info_description { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .archive_article .article_texts { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .partners .partners_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .partners .partners_text h2,
+body.lang-ru .partners .partners_text h3,
+body.lang-ru .partners .partners_text h4 { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .partners .partners_text p { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .partners .partners_action .action_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .partners .partners_action a { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .master_class .title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .register_modal .content_title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .register_modal .form-label { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .register_modal .group-title { font-family: "Georgia", sans-serif !important; }
+body.lang-ru .register_modal .submit_button { font-family: "Georgia", sans-serif !important; }
+
+
 .hero.opened {
       min-height: 100vh;
 }
@@ -137,9 +225,6 @@ body.night .languages a {
 }
 .hero.opened .hero-container{
       display: flex;
-}
-.hero .hero-container{
-      display: none;
 }
 .hero-text {
       color: var(--acs-sand);
@@ -192,7 +277,6 @@ body.night .social_media_links a
       /*color: var(--acs-black);*/
 }
 .hero .hero_content{
-      background-image: url(/images/hero_background_image.png);
       background-repeat: no-repeat;
       background-size: cover;
       height: 100%;
@@ -479,7 +563,6 @@ body.dark .menu_bar{
       position: absolute;
       left: 0;
       top: 0;
-      height: 100%;
 }
 .hero .hero-container{
       width: 100%;
@@ -565,6 +648,8 @@ body.dark .menu_bar{
       background-color: var(--Sandy-Yellow);
       color: var(--acs-black);
       padding: 75px 0;
+      position: relative;
+      z-index: 10;
 }
 .footer .container-fluid{
       padding: 0 70px;
@@ -1474,7 +1559,7 @@ body.night .archive {
       font-size: 20px;
       font-style: normal;
       font-weight: 400;
-      line-height: 25px;
+      line-height: 130%;
       font-family: 'Exposure_-20', sans-serif;
 }
 .books_accordion .accordion_item .accordion_header > div{
@@ -1599,14 +1684,17 @@ body.night .archive {
 }
 .research_articles .article .article_image{
       margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 }
 .research_articles .article .article_date{
       font-size: 20px;
       font-style: normal;
       font-weight: 400;
-      line-height: 25px;
+      line-height: 130%;
       font-family: 'Exposure_-20', sans-serif;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
 }
 .research_articles .article .article_title{
       font-size: 35px;
@@ -1614,7 +1702,7 @@ body.night .archive {
       font-weight: 400;
       line-height: 40px;
       font-family: 'Exposure_-40', sans-serif;
-      margin-bottom: 45px;
+      margin-bottom: 30px;
 }
 .research_articles .article .article_link{
       font-size: 20px;
@@ -2101,7 +2189,7 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       }
       .research_articles .article .article_title{
             font-size: 30px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
       }
       .research_articles .article .article_image{
             margin-bottom: 20px;
@@ -2160,11 +2248,17 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       .books_accordion .accordion_item .accordion_header{
             font-size: 18px;
       }
+      .hero_content .main_content iframe{
+            height: 500px;
+      }
 }
 
 @media all and (max-width: 1200px) {
       .archive_articles{
             margin-bottom: 70px;
+      }
+      .hero_content .main_content iframe{
+            height: 450px;
       }
       .books_accordion .accordion_item{
             padding: 20px 0;
@@ -2433,6 +2527,21 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       .wrapper section:not(:last-child){
             border-bottom: 1px solid transparent;
             width: 100% !important;
+      }
+      .books_accordion .accordion_item .accordion_actions{
+            align-items: flex-start;
+      }
+      .accordion_actions .accordion_open{
+            justify-content: flex-start;
+            text-align: left;
+            margin: 0;
+      }
+      .hero_content .main_content iframe{
+            height: 400px;
+      }
+      .wrapper_header_hero{
+            width: 100%;
+            position: relative;
       }
       .hero_content .hero_content_header{
             display: block;
@@ -2727,7 +2836,7 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
             width: 100%;
       }
       .menu_bar.opened{
-            width: 100%;
+            width: 100% !important;
             height: auto;
       }
       .menu_bar .main_section,
@@ -2829,6 +2938,12 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
             font-style: normal;
             font-weight: 400;
             line-height: 13px;
+      }
+      .accordion_item .accordion_content .accordion_texts{
+            font-size: 11px;
+      }
+      .hero_content .main_content iframe{
+            height: 100%;
       }
       .archive_article .article_texts p{
             margin-bottom: 20px;
@@ -3007,11 +3122,12 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       .research_articles .article .article_date{
             font-size: 11px;
             font-style: normal;
+            margin-bottom: 15px;
       }
       .research_articles .article .article_title{
             line-height: normal;
             font-size: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
       }
       .research_articles .article .article_link{
             font-size: 12px;
@@ -3722,5 +3838,18 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       }
       .introduction_block .introduction_content .text_block{
             margin: 0 auto;
+      }
+      .languages a:not(:last-child){
+            padding-right: 10px;
+            margin-right: 10px;
+      }
+      .toggle{
+            margin-right: 15px;
+      }
+      .languages a{
+            font-size: 14px;
+      }
+      .research_articles .article .article_image{
+            margin-bottom: 15px;
       }
 }

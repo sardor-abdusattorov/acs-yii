@@ -172,7 +172,6 @@ $(document).ready(function(e){
         });
     });
 
-
     $('.scroll-link').on('click', function(e) {
         e.preventDefault();
         var target = $($(this).attr('href'));
@@ -203,7 +202,13 @@ $(document).ready(function(e){
         }
     });
 
-    $('.hero .hero_content').on('click', function(e) {
+    $('.hero .wrapper_header_hero').on('click', function(e) {
+        if ($(e.target).closest('.main_header').length) {
+            return;
+        }
+        if ($('.hero').hasClass('opened')) {
+            return;
+        }
         let menuWidth = $('.menu_bar.hero').data('width') || 180;
         $('.menu_bar').removeClass('opened').removeAttr('style');
         $('.hero').addClass('opened').css('width', `calc(100% - ${menuWidth}px)`);
@@ -219,6 +224,7 @@ $(document).ready(function(e){
                 bar.removeClass('opened');
                 bar.removeAttr('style');
                 hero.addClass('opened');
+                $('.hero').addClass('opened').css('width', `calc(100% - ${menuWidth}px)`);
                 return;
             }
 
@@ -237,6 +243,30 @@ $(document).ready(function(e){
             }
         }
     });
+
+    $('.section_header').on('click', function() {
+        if (window.innerWidth < 992) {
+            const $section = $(this).closest('section');
+            setTimeout(function() {
+                if ($section.hasClass('opened')) {
+                    $section[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+    });
+
+    $('.hero_content_header').on('click', function() {
+        if (window.innerWidth < 992) {
+            const $section = $(this).closest('section');
+            const content = $(this).closest('.hero_content');
+            setTimeout(function() {
+                if ($section.hasClass('opened')) {
+                    content[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+    });
+
 
 
     if (localStorage.getItem('theme') === 'night') {

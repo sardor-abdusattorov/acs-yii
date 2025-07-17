@@ -71,7 +71,7 @@ $youtube_link = $settings['youtube_link'] ?? '';
                             </a>
                         </div>
 
-                        <div class="container hero-text">
+                        <div class="hero-text">
                             <div class="row">
                                 <div class="col-12 col-md-6">
                                     <p><?= Yii::t('app', 'A future for the planet <br>and Karakalpakstan') ?></p>
@@ -261,7 +261,7 @@ $youtube_link = $settings['youtube_link'] ?? '';
                             </h2>
                             <?php if(!empty($articles)): ?>
 
-                                <div class="articles_row row">
+                                <div class="articles_row row gx-0 gy-0">
 
                                     <?php foreach ($articles as $article): ?>
 
@@ -277,7 +277,7 @@ $youtube_link = $settings['youtube_link'] ?? '';
                                         $monthName = Yii::$app->params['months'][$lang][$monthNum] ?? date('F', $timestamp);
                                         ?>
 
-                                        <div class="col-md-6 g-5">
+                                        <div class="col-md-6 gy-3 gy-md-4">
                                             <div class="article">
                                                 <div class="article_image">
                                                     <img src="<?= $preview ?>" alt="<?= $article->title ?>">
