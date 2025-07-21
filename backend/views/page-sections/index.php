@@ -68,6 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'format' => "html"
             ],
+            'name',
 //            'sort',
             'created_at',
             //'updated_at',
