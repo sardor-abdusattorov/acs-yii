@@ -2,29 +2,7 @@ $(document).ready(function(e){
 
     $(document).on('click', '.navigation_link', function(e) {
         e.preventDefault();
-
-        var year = $(this).data('year');
-        let lang = $('html').attr('lang') || 'ru';
-
-        $.ajax({
-            url: '/' + lang + '/site/archive-year',
-            type: 'POST',
-            data: {year: year},
-            success: function(response) {
-                if (response.success) {
-                    $('.navigation_link').removeClass('active');
-                    $('[data-year="' + year + '"]').addClass('active');
-                    $('.main_section').html(response.html);
-                } else {
-                    console.error(response.message);
-                }
-            },
-            error: function() {
-                console.error('Ошибка загрузки данных');
-            }
-        });
     });
-
 
     $('.article_link').on('click', function(e) {
         e.preventDefault();

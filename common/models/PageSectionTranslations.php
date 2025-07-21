@@ -39,7 +39,7 @@ class PageSectionTranslations extends \yii\db\ActiveRecord
             [['section_id'], 'integer'],
             [['content'], 'string'],
             [['language'], 'string', 'max' => 10],
-            [['title', 'subtitle'], 'string', 'max' => 255],
+            [['title'], 'string', 'max' => 255],
             [['section_id', 'language'], 'unique', 'targetAttribute' => ['section_id', 'language']],
             [['section_id'], 'exist', 'skipOnError' => true, 'targetClass' => PageSections::class, 'targetAttribute' => ['section_id' => 'id']],
         ];

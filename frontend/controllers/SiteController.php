@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use common\components\StaticFunctions;
+use common\models\ArchiveNews;
 use common\models\Articles;
 use common\models\Books;
 use common\models\EventProgram;
@@ -57,36 +58,17 @@ class SiteController extends BaseController
         $partners = PageSections::getSection('partners_logo', 'home');
         $archive_hero = PageSections::getSection('archive_hero', 'home');
 
-        $eventYears = EventProgram::find()
+        $years = ArchiveNews::find()
             ->select(['year' => new Expression('YEAR(created_at)')])
-            ->where(['status' => EventProgram::STATUS_ARCHIVED])
             ->groupBy('year')
+            ->orderBy(['year' => SORT_ASC])
             ->column();
-
-        $locationYears = Locations::find()
-            ->select(['year' => new Expression('YEAR(created_at)')])
-            ->where(['status' => Locations::STATUS_ARCHIVED])
-            ->groupBy('year')
-            ->column();
-
-        $years = array_unique(array_merge($eventYears, $locationYears));
-        sort($years);
 
         $activeYear = $years[0] ?? null;
 
-        $old_locations = Locations::find()
-            ->where(['status' => Locations::STATUS_ARCHIVED])
-            ->andWhere(['YEAR(created_at)' => $activeYear])
-            ->orderBy(['order_by' => SORT_ASC])
-            ->all();
+        $archive_news = ArchiveNews::find()->where(['status' => 1])->orderBy(['order_by' => SORT_DESC])->all();
 
-        $archive_events = EventProgram::find()
-            ->where(['status' => EventProgram::STATUS_ARCHIVED])
-            ->andWhere(['YEAR(created_at)' => $activeYear])
-            ->orderBy(['order_by' => SORT_ASC])
-            ->all();
-
-        $tags = Tags::find()->where(['status' => 1])->orderBy(['order_by' => SORT_ASC])->all();
+        $archive_gallery = PageSections::getSection('archive_gallery', 'home');
 
         return $this->render('index', [
             'social_links' => $social_links,
@@ -97,11 +79,10 @@ class SiteController extends BaseController
             'articles' => $articles,
             'partners' => $partners,
             'archive_hero' => $archive_hero,
-            'old_locations' => $old_locations,
-            'archive_events' => $archive_events,
-            'tags' => $tags,
             'years' => $years,
             'activeYear' => $activeYear,
+            'archive_news' => $archive_news,
+            'archive_gallery' => $archive_gallery,
         ]);
     }
 

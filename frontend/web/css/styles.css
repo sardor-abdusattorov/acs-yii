@@ -219,6 +219,7 @@ body.lang-ru .register_modal .group-title { font-family: "Georgia", sans-serif !
 body.lang-ru .register_modal .submit_button { font-family: "Georgia", sans-serif !important; }
 
 
+
 .hero.opened {
       min-height: 100vh;
 }
@@ -325,9 +326,60 @@ body.night .hero_content .hero_content_header
       padding: 60px 115px 60px 190px;
 }
 
-/* Hero section */
 
-/* Intraduction */
+
+/* ARCHIVE */
+.archive_news{
+      margin-bottom: 50px;
+}
+.archive_news .news_row{
+      display: flex;
+      flex-direction: column;
+}
+.archive_news .archive_card{
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-top: 25px;
+      border-top: 2px solid #000;
+}
+.archive_news .archive_card:not(:last-child){
+      margin-bottom: 45px;
+}
+.archive_news .archive_card > div{
+      flex: 0 0 auto;
+      width: calc(50% - 12px);
+}
+.archive_news .archive_card .card_title{
+      font-family: "Exposure_-20", sans-serif;
+      font-weight: 600;
+      font-size: 25px;
+      line-height: 120%;
+      margin-bottom: 25px;
+}
+.archive_news .archive_card .card_description{
+      font-size: 23px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 29px;
+}
+.archive_news .archive_card .card_image{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+.archive_news .archive_card .card_image img{
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+}
+body.lang-ru .archive_news .archive_card .card_title{
+      font-family: 'Georgia', sans-serif;
+}
+      /* Hero section */
+
+/* introduction */
 .introduction {
       display: none;
       background-color: var(--Green-Mist);
@@ -1802,7 +1854,7 @@ body.night .archive {
       object-position: center;
 }
 .section_content .archive_content{
-      margin-bottom: 120px;
+      margin-bottom: 90px;
 }
 .archive_content h2,
 .archive_content h3{
@@ -1812,11 +1864,17 @@ body.night .archive {
       line-height: 50px;
       margin-bottom: 50px;
 }
-.archive_content p{
+
+.archive .section_description{
       font-size: 35px;
       font-style: normal;
       font-weight: 400;
       line-height: 40px;
+      margin-bottom: 60px;
+}
+.archive_content p{
+      font-size: 23px;
+      line-height: 29px;
 }
 .archive_content p:not(:last-child){
       margin-bottom: 25px;
@@ -1911,7 +1969,7 @@ body.night .archive {
       object-fit: cover;
 }
 .partners.archive{
-      margin-top: 100px;
+      margin-top: 75px;
 }
 .archive_article .article_title{
       font-size: 45px;
@@ -2174,6 +2232,16 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       .archive_articles{
             margin-bottom: 80px;
       }
+      .archive .section_description{
+            font-size: 32px;
+            line-height: 130%;
+            margin-bottom: 40px;
+      }
+      .archive_content h2, .archive_content h3{
+            font-size: 40px;
+            line-height: 130%;
+            margin-bottom: 40px;
+      }
       .locations_archive .location_content .location_name{
             font-size: 24px;
       }
@@ -2267,6 +2335,21 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       .archive_articles{
             margin-bottom: 70px;
       }
+      .archive_content p{
+            font-size: 18px;
+            line-height: 130%;
+      }
+      .archive .section_description{
+            font-size: 28px;
+      }
+      .archive_news .archive_card .card_description{
+            font-size: 20px;
+      }
+      .gallery .slide_prev, .gallery .slide_next{
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+      }
       .hero_content .main_content iframe{
             height: 450px;
       }
@@ -2342,10 +2425,6 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       .archive_content h2, .archive_content h3{
             font-size: 40px;
             margin-bottom: 40px;
-      }
-      .archive_content p{
-            font-size: 30px;
-            line-height: 120%;
       }
       .section_content .archive_content{
             margin-bottom: 80px;
@@ -2538,6 +2617,33 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
             border-bottom: 1px solid transparent;
             width: 100% !important;
       }
+      .archive .section_description{
+            font-size: 24px;
+            margin-bottom: 30px;
+      }
+      .archive_content p{
+            font-size: 15px;
+      }
+      .archive_content p:not(:last-child){
+            margin-bottom: 20px;
+      }
+      .archive_news .archive_card{
+            flex-direction: column;
+      }
+      .archive_news .archive_card > div{
+            width: 100%;
+      }
+      .archive_news .archive_card .card_title{
+            font-size: 20px;
+            line-height: 130%;
+      }
+      .archive_news .archive_card .card_description{
+            font-size: 15px;
+            line-height: 130%;
+      }
+      .archive_news .archive_card .card_texts{
+            margin-bottom: 20px;
+      }
       .books_accordion .accordion_item .accordion_actions{
             align-items: flex-start;
       }
@@ -2632,9 +2738,6 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
       .archive_content h2, .archive_content h3{
             font-size: 32px;
             margin-bottom: 30px;
-      }
-      .archive_content p{
-            font-size: 24px;
       }
       .section_content .archive_content{
             margin-bottom: 60px;
@@ -2743,7 +2846,7 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
             font-size: 20px;
       }
       .partners .partner_logo{
-            justify-content: flex-start;
+            justify-content: center;
       }
       .partners .partners_action a{
             padding: 10px 25px;
@@ -2943,6 +3046,14 @@ body.night .hero.mobile-opened .main_header .mobile_logo .dark{
 }
 
 @media all and (max-width: 768px) {
+      .gallery .slide_prev, .gallery .slide_next{
+            width: 32px;
+            height: 32px;
+            font-size: 16px;
+      }
+      .archive .section_description{
+            font-size: 15px;
+      }
       .archive_article .article_texts{
             font-size: 11px;
             font-style: normal;

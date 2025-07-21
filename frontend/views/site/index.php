@@ -337,89 +337,64 @@ $youtube_link = $settings['youtube_link'] ?? '';
                         </div>
 
                     </div>
+
                     <?php if(!empty($archive_hero)): ?>
 
-                        <?php $image = StaticFunctions::getImage($archive_hero->image, 'page-sections', $archive_hero->id) ?>
                         <div class="section_content">
                             <div class="section_title">
                                 <?=$archive_hero->title?>
                             </div>
-                            <div class="section_image">
-                                <a href="<?= $image ?>" class="w-100" data-fancybox="gallery" data-caption="<?= htmlspecialchars($archive_hero->title, ENT_QUOTES) ?>">
-                                    <img src="<?= $image ?>" alt="<?= htmlspecialchars($archive_hero->title, ENT_QUOTES) ?>">
-                                </a>
+                            <div class="section_description">
+                                <?=$archive_hero->subtitle?>
                             </div>
 
                             <div class="archive_content">
-                                <?=$archive_hero->content?>
+                                <?=Html::decode($archive_hero->content)?>
                             </div>
                         </div>
 
                     <?php endif; ?>
 
-                    <?php if (!empty($archive_events) && !empty($tags)): ?>
-                        <div class="archive_articles">
-                            <?php foreach ($tags as $tag): ?>
-                                <?php
-                                $tagEvents = array_filter($archive_events, function($event) use ($tag) {
-                                    return $event->tag_id == $tag->id;
-                                });
-                                ?>
+                    <?php if(!empty($archive_news)): ?>
 
-                                <?php if (!empty($tagEvents)): ?>
-                                    <div class="archive_block">
-                                        <div class="block_title">
-                                            <?= Html::encode($tag->title) ?>
+                        <div class="archive_news">
+                            <div class="news_row">
+                                <?php foreach ($archive_news as $news): ?>
+                                    <?php $image = StaticFunctions::getImage($news->image, 'archive-news', $news->id) ?>
+
+                                    <div class="archive_card">
+                                        <div class="card_texts">
+                                            <div class="card_title">
+                                                <?=$news->title?>
+                                            </div>
+                                            <div class="card_description">
+                                                <?=$news->description?>
+                                            </div>
                                         </div>
-                                        <div class="archives">
-                                            <?php foreach ($tagEvents as $event): ?>
-                                                <div class="archive">
-                                                    <button type="button" class="archive_name" data-id="<?= $event->id ?>">
-                                                        <?= Html::encode($event->title) ?>
-                                                    </button>
-                                                    <div class="archive_type">
-                                                        <?= Html::encode($event->tag->title) ?>
-                                                    </div>
-                                                    <div class="archive_time">
-                                                        <?= Yii::$app->formatter->asTime($event->start_time, 'php:H:i') ?> - <?= Yii::$app->formatter->asTime($event->end_time, 'php:H:i') ?>
-                                                    </div>
-                                                </div>
-                                            <?php endforeach; ?>
+                                        <div class="card_image">
+                                            <img src="<?=$image?>" alt="<?=$news->title?>">
                                         </div>
                                     </div>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
+
+                                <?php endforeach; ?>
+                            </div>
                         </div>
+
                     <?php endif; ?>
 
 
-                    <div class="locations_archive">
-                        <div class="section_title">
-                            <?=Yii::t('app', 'Locations')?>
-                        </div>
-                        <?php if(!empty($old_locations)): ?>
+                    <?php if(!empty($archive_gallery)): ?>
 
-                            <div class="locations_row">
+                        <div class="gallery swiper mt-5">
+                            <div class="swiper-wrapper">
 
-                                <?php foreach ($old_locations as $location): ?>
+                                <?php foreach ($archive_gallery->galleryItems as $item): ?>
 
-                                    <?php $image = StaticFunctions::getImage($location->image, 'locations', $location->id) ?>
+                                    <?php $image = StaticFunctions::getImage($item->image, 'page-sections', $archive_gallery->id) ?>
 
-                                    <div class="row archive_location">
-                                        <div class="col-xl-6 col-12">
-                                            <div class="location_content">
-                                                <div class="location_name">
-                                                    <?=$location->title?>
-                                                </div>
-                                                <div class="location_details">
-                                                    <?=$location->content?>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-12">
-                                            <div class="location_image">
-                                                <img src="<?=$image?>" alt="<?=$location->title?>">
-                                            </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide_item">
+                                            <img src="<?=$image?>" alt="">
                                         </div>
                                     </div>
 
@@ -427,9 +402,17 @@ $youtube_link = $settings['youtube_link'] ?? '';
 
                             </div>
 
-                        <?php endif; ?>
+                            <div class="swiper_navs">
+                                <div class="slide_prev">
+                                    <i class="fas fa-arrow-left"></i>
+                                </div>
+                                <div class="slide_next">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
 
-                    </div>
+                    <?php endif; ?>
 
                     <div class="partners archive">
                         <div class="partners_title">
@@ -447,110 +430,6 @@ $youtube_link = $settings['youtube_link'] ?? '';
                         <?php endif; ?>
                     </div>
 
-                    <div class="archive_article">
-                        <div class="article_title">
-                            Charting Water Futures
-                        </div>
-                        <div class="article_description">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore meat
-                            agna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-                            quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet doloresun magna aliquam erat volutpat.
-                        </div>
-                        <div class="article_infos">
-                            <div class="info_item">
-                                <div class="inner_item">
-                                    <div class="info_title">
-                                        4TH OF APRIL
-                                    </div>
-                                    <div class="info_description fw-bolder">
-                                        11:00 – 12:00
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info_item">
-                                <div class="inner_item">
-                                    <div class="info_title">
-                                        ATTENDEES
-                                    </div>
-                                    <div class="info_description">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info_item">
-                                <div class="inner_item">
-                                    <div class="info_title">
-                                        NABI AGZAMOV
-                                    </div>
-                                    <div class="info_description">
-                                        Architect, Researcher at 5th Studio, Uzbekistan/Great Britain
-                                    </div>
-                                </div>
-                                <div class="inner_item">
-                                    <div class="info_title">
-                                        AHMED AND RASHID BIN SHABIB
-                                    </div>
-                                    <div class="info_description">
-                                        Founders of Brownbook and architects of interdisciplinary projects rethinking the circulation of materials and ideas in urbanism
-                                    </div>
-                                </div>
-                                <div class="inner_item">
-                                    <div class="info_title">
-                                        VLADIM SOKOLOV
-                                    </div>
-                                    <div class="info_description">
-                                        Head of the Project Implementation Agency of the International Fund for Saving the Aral Sea (IFAS), Uzbekistan
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="article_texts">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisiimi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolorm
-                                in hendrerit in vulputate velit esse molstie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonum. Loremim ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eui Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wismi enim ad minim veniam, quis nostrudi exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan
-                                et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisiimi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolorm
-                                in hendrerit in vulputate velit esse molstie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonum. Loremim ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eui Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wismi enim ad minim veniam, quis nostrudi exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan
-                                et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat
-                            </p>
-                        </div>
-                        <div class="gallery swiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="slide_item">
-                                        <img src="/images/location_1.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="slide_item">
-                                        <img src="/images/location_1.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="slide_item">
-                                        <img src="/images/location_1.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="slide_item">
-                                        <img src="/images/location_1.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Навигационные кнопки -->
-                            <div class="swiper_navs">
-                                <div class="slide_prev">
-                                    <i class="fas fa-arrow-left"></i>
-                                </div>
-                                <div class="slide_next">
-                                    <i class="fas fa-arrow-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
             </section>
