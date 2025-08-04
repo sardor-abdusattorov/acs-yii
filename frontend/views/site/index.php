@@ -355,6 +355,48 @@ $youtube_link = $settings['youtube_link'] ?? '';
 
                     <?php endif; ?>
 
+                    <div class="archive_programs">
+                        <div class="programs_title">
+                            <?=Yii::t('app', 'summit_programme')?>
+                        </div>
+
+                        <div class="programs_accordion">
+                            <?php foreach ($program_dates as $date): ?>
+                                <?php
+                                $timestamp = strtotime($date->date);
+                                $day = date('j', $timestamp);
+                                $month = Yii::$app->params['months'][Yii::$app->language][(int)date('n', $timestamp)];
+                                $weekday = Yii::$app->params['weekdays'][Yii::$app->language][date('N', $timestamp)];
+
+                                $daySessions = array_filter($sessions, fn($s) => $s->date_id === $date->id);
+                                ?>
+
+                                <div class="custom_accordion">
+                                    <div class="accordion_date">
+                                        <?= "{$day} {$month}, {$weekday}" ?>
+                                    </div>
+
+                                    <div class="accordion_item_wrapper">
+                                        <?php foreach ($daySessions as $session): ?>
+                                            <div class="programs_accordion__item">
+                                                <div class="accordion_content">
+                                                    <div class="accordion__title">
+                                                        <?= Html::encode($session->title) ?>
+                                                    </div>
+                                                    <div class="accordion__body">
+                                                        <?= $session->content ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+
+
+                    </div>
+
                     <?php if(!empty($archive_news)): ?>
 
                         <div class="archive_news">

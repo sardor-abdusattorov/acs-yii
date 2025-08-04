@@ -9,6 +9,8 @@ use common\models\Books;
 use common\models\EventProgram;
 use common\models\Locations;
 use common\models\PageSections;
+use common\models\ProgramDate;
+use common\models\ProgramSessions;
 use common\models\Registration;
 use common\models\Sections;
 use common\models\Settings;
@@ -70,6 +72,13 @@ class SiteController extends BaseController
 
         $archive_gallery = PageSections::getSection('archive_gallery', 'home');
 
+        $program_dates = ProgramDate::find()
+            ->orderBy(['date' => SORT_ASC])
+            ->all();
+
+        $sessions = ProgramSessions::find()->orderBy(['sort' => SORT_ASC])->all();
+
+
         return $this->render('index', [
             'social_links' => $social_links,
             'hero' => $hero,
@@ -83,6 +92,8 @@ class SiteController extends BaseController
             'activeYear' => $activeYear,
             'archive_news' => $archive_news,
             'archive_gallery' => $archive_gallery,
+            'program_dates' => $program_dates,
+            'sessions' => $sessions,
         ]);
     }
 

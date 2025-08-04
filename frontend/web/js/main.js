@@ -1,5 +1,13 @@
 $(document).ready(function(e){
 
+    $('.accordion_date').on('click', function() {
+        $(this).next('.accordion_item_wrapper').slideToggle(250);
+        $(this).toggleClass('active');
+    });
+
+    $('.accordion_item_wrapper').hide();
+
+
     $(document).on('click', '.navigation_link', function(e) {
         e.preventDefault();
     });

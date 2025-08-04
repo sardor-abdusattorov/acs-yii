@@ -54,6 +54,21 @@ use yii\helpers\Url;
                 <li class="nav-item"><a href="<?= Url::to(['/menu']) ?>" class="nav-link <?= StaticFunctions::isActive('menu') ?>"><i class="fas fa-bars nav-icon"></i><p>Меню</p></a></li>
                 <li class="nav-item"><a href="<?= Url::to(['/social-links']) ?>" class="nav-link <?= StaticFunctions::isActive('social-links') ?>"><i class="fas fa-share-alt nav-icon"></i><p>Социальные сети</p></a></li>
 
+                <!-- Основное меню (вне групп) -->
+                <li class="nav-item">
+                    <a href="<?= Url::to(['/program-date']) ?>" class="nav-link <?= StaticFunctions::isActive('program-date') ?>">
+                        <i class="fas fa-calendar-alt nav-icon"></i>
+                        <p>Даты программы</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= Url::to(['/program-sessions']) ?>" class="nav-link <?= StaticFunctions::isActive('program-sessions') ?>">
+                        <i class="fas fa-list-ul nav-icon"></i>
+                        <p>Сессии программы</p>
+                    </a>
+                </li>
+
+
                 <!-- Страницы -->
                 <li class="nav-item has-treeview <?= StaticFunctions::isGroupActive(['pages', 'page-sections', 'sections']) ? 'menu-open' : '' ?>">
                     <a href="#" class="nav-link <?= StaticFunctions::isGroupActive(['pages', 'page-sections', 'sections']) ? 'active' : '' ?>">
