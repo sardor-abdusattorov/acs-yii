@@ -7,8 +7,8 @@ return [
         2 => 'Нижнее меню',
     ],
     'languages' => [
-        'en' => 'English',
         'ru' => 'Русский',
+        'en' => 'English',
         'uz' => 'Oʻzbekcha',
         'ka' => 'Qaraqalpaqsha',
     ],
@@ -28,6 +28,24 @@ return [
         'ka' => [
             1 => 'Yanvar', 2 => 'Fevral', 3 => 'Mart', 4 => 'Aprel', 5 => 'May', 6 => 'Iyun',
             7 => 'Iyul', 8 => 'Avgust', 9 => 'Sentabr', 10 => 'Oktabr', 11 => 'Noyabr', 12 => 'Dekabr',
+        ],
+    ],
+    'weekdays' => [
+        'en' => [
+            1 => 'Monday', 2 => 'Tuesday', 3 => 'Wednesday', 4 => 'Thursday',
+            5 => 'Friday', 6 => 'Saturday', 7 => 'Sunday',
+        ],
+        'ru' => [
+            1 => 'Понедельник', 2 => 'Вторник', 3 => 'Среда', 4 => 'Четверг',
+            5 => 'Пятница', 6 => 'Суббота', 7 => 'Воскресенье',
+        ],
+        'uz' => [
+            1 => 'Dushanba', 2 => 'Seshanba', 3 => 'Chorshanba', 4 => 'Payshanba',
+            5 => 'Juma', 6 => 'Shanba', 7 => 'Yakshanba',
+        ],
+        'ka' => [
+            1 => 'Duyshanba', 2 => 'Seyshanba', 3 => 'Chorshanba', 4 => 'Payshanba',
+            5 => 'Juma', 6 => 'Shanba', 7 => 'Yakshanba',
         ],
     ],
     'adminEmail' => 'admin@example.com',
