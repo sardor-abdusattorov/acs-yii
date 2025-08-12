@@ -1,6 +1,8 @@
 <?php
 
 use common\components\Editor;
+use kartik\datetime\DateTimePicker;
+use kartik\widgets\DatePicker;
 use kartik\widgets\FileInput;
 use kartik\widgets\SwitchInput;
 use yii\helpers\Html;
@@ -79,6 +81,20 @@ $languages = Yii::$app->params['languages'];
     <div class="col-md-4 col-12">
         <div class="card">
             <div class="card-body">
+
+                <?= $form->field($model, 'published_date')->widget(DateTimePicker::class, [
+                    'options' => ['placeholder' => 'Выберите дату публикации...'],
+                    'language' => 'ru',
+                    'pluginOptions' => [
+                        'autoclose' => true,
+                        'format' => 'yyyy-mm-dd hh:ii',
+                        'todayHighlight' => true,
+                        'minuteStep' => 5,
+                        'showSeconds' => false,
+                    ]
+                ]) ?>
+
+
                 <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
                 <?= $form->field($model, 'order_by')->textInput([

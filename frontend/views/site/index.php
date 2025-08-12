@@ -268,7 +268,7 @@ $youtube_link = $settings['youtube_link'] ?? '';
                                         <?php
                                         $preview = StaticFunctions::getThumbnail($article->image, 'articles', $article->id);
 
-                                        $timestamp = strtotime($article->created_at);
+                                        $timestamp = strtotime($article->published_date);
                                         $lang = Yii::$app->language;
                                         $day = date('d', $timestamp);
                                         $monthNum = (int)date('n', $timestamp);

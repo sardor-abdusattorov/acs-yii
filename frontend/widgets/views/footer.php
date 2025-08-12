@@ -60,12 +60,6 @@ $acdf_email = $settings['acdf_email'] ?? '';
                     <p>
                         <?=$acdf_address?>
                     </p>
-                    <p>
-                        <?=Yii::t('app', 'Phone')?>:
-                        <a href="tel:<?=$acdf_phone?>">
-                            <?=$acdf_phone?>
-                        </a>
-                    </p>
                 </div>
                 <div class="general_inquiries mt-3">
                     <p class="section_title m-0">

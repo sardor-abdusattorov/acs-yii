@@ -20,6 +20,7 @@ use yii\helpers\Url;
  * @property int $status Статус
  * @property string|null $created_at
  * @property string|null $updated_at
+ * @property string|null $published_date Дата публикации
  *
  * @property ArticlesTranslations[] $articlesTranslations
  */
@@ -77,7 +78,7 @@ class Articles extends \yii\db\ActiveRecord
             [['order_by'], 'default', 'value' => 0],
             [['status'], 'default', 'value' => 1],
             [['order_by', 'status'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['created_at', 'updated_at','published_date'], 'safe'],
             [['image', 'slug'], 'string', 'max' => 255],
         ];
     }
@@ -95,6 +96,7 @@ class Articles extends \yii\db\ActiveRecord
             'status' => 'Статус',
             'created_at' => 'Дата создания',
             'updated_at' => 'Дата обновления',
+            'published_date' => 'Дата публикации',
         ];
     }
 
