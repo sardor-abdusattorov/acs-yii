@@ -244,7 +244,7 @@ body.lang-ru .archive_programs{ font-family: "Georgia", sans-serif !important; }
 body.night .programs_accordion .accordion_date,
 body.night .programs_accordion__item,
 body.night .custom_accordion:first-child{
-      border-color: var(--acs-sand);
+      border-color: var(--acs-sand)
 }
 .custom_accordion:first-child{
       border-top: 2px solid #000;
