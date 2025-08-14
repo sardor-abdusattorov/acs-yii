@@ -719,7 +719,6 @@ body.dark .menu_bar{
 }
 .main_section_header .navigation_link{
       font-family: 'Exposure_+10', sans-serif;
-      color: var(--Black);
       font-size: 20px;
       font-style: normal;
       font-weight: 400;
