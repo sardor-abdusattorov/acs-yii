@@ -692,6 +692,7 @@ body.dark .menu_bar{
       position: absolute;
       left: 0;
       top: 0;
+      height: 100%;
 }
 .hero .hero-container{
       width: 100%;
