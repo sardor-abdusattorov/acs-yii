@@ -217,10 +217,9 @@ body.lang-ru .register_modal .content_title { font-family: "Georgia", sans-serif
 body.lang-ru .register_modal .form-label { font-family: "Georgia", sans-serif !important; }
 body.lang-ru .register_modal .group-title { font-family: "Georgia", sans-serif !important; }
 body.lang-ru .register_modal .submit_button { font-family: "Georgia", sans-serif !important; }
-
+body.lang-ru .archive_programs{ font-family: "Georgia", sans-serif !important; }
 
 .archive_programs .programs_title{
-      color: #000;
       font-size: 23px;
       font-style: normal;
       font-weight: 398;
@@ -232,7 +231,6 @@ body.lang-ru .register_modal .submit_button { font-family: "Georgia", sans-serif
       flex-direction: column;
 }
 .programs_accordion .accordion_date{
-      color: #000;
       leading-trim: both;
       text-edge: cap;
       font-size: 23px;
@@ -242,6 +240,11 @@ body.lang-ru .register_modal .submit_button { font-family: "Georgia", sans-serif
       padding: 25px 0;
       cursor: pointer;
       border-bottom: 2px solid #000;
+}
+body.night .programs_accordion .accordion_date,
+body.night .programs_accordion__item,
+body.night .custom_accordion:first-child{
+      border-color: var(--acs-sand);
 }
 .custom_accordion:first-child{
       border-top: 2px solid #000;
@@ -257,7 +260,6 @@ body.lang-ru .register_modal .submit_button { font-family: "Georgia", sans-serif
       border-bottom: 2px solid #000;
 }
 .programs_accordion__item .accordion_content .accordion__title{
-      color: #000;
       leading-trim: both;
       text-edge: cap;
       font-size: 23px;
@@ -271,7 +273,6 @@ body.lang-ru .register_modal .submit_button { font-family: "Georgia", sans-serif
       width: calc(60% - 12px);
 }
 .accordion_content .accordion__body {
-      color: #000;
       leading-trim: both;
       text-edge: cap;
       font-size: 15px;
@@ -282,8 +283,6 @@ body.lang-ru .register_modal .submit_button { font-family: "Georgia", sans-serif
 .accordion_content .accordion__body p:not(:last-child) {
       margin-bottom: 20px;
 }
-
-
 
 .hero.opened {
       min-height: 100vh;
