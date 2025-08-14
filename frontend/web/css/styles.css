@@ -243,7 +243,8 @@ body.lang-ru .archive_programs{ font-family: "Georgia", sans-serif !important; }
 }
 body.night .programs_accordion .accordion_date,
 body.night .programs_accordion__item,
-body.night .custom_accordion:first-child{
+body.night .custom_accordion:first-child,
+body.night .archive_news .archive_card{
       border-color: var(--acs-sand)
 }
 .custom_accordion:first-child{
