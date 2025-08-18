@@ -240,6 +240,28 @@ body.lang-ru .archive_programs{ font-family: "Georgia", sans-serif !important; }
       padding: 25px 0;
       cursor: pointer;
       border-bottom: 2px solid #000;
+      position: relative;
+      padding-right: 30px;
+}
+body.night .programs_accordion .accordion_date::after{
+      border-color: var(--acs-sand)
+}
+
+.programs_accordion .accordion_date::after{
+      content: "";
+      display: block;
+      height: 12px;
+      width: 12px;
+      right: 20px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      transform: rotate(45deg);
+      border-bottom: 2px solid #000;
+      border-right: 2px solid #000;
+      transition: .3s all ease;
+      opacity: 1;
+      position: absolute;
 }
 body.night .programs_accordion .accordion_date,
 body.night .programs_accordion__item,
