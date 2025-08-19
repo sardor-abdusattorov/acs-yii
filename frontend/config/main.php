@@ -49,10 +49,10 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
-            'class' => 'codemix\localeurls\UrlManager',
-            'languages' => ['en', 'ru', 'uz', 'ka'],
-            'enableDefaultLanguageUrlCode' => true,
-            'enableLanguagePersistence' => true,
+            //'class' => 'codemix\localeurls\UrlManager',
+            //'languages' => ['en', 'ru', 'uz', 'ka'],
+            //'enableDefaultLanguageUrlCode' => true,
+            //'enableLanguagePersistence' => true,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
@@ -62,8 +62,8 @@ return [
                 '<controller>/<action>' => '<controller>/<action>',
                 '<controller>' => '<controller>/index',
             ],
-
         ],
+
     ],
     'params' => $params,
 ];
