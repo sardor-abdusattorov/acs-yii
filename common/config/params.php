@@ -1,7 +1,7 @@
 <?php
 return [
-    'frontend' => 'https://preprod.aralculturesummit.uz',
-    'backend' => 'https://preprod.aralculturesummit.uz/admin',
+    'frontend' => 'https://aralculturesummit.uz',
+    'backend' => 'https://aralculturesummit.uz/admin',
     'menu_positions' => [
         1 => 'Верхнее меню',
         2 => 'Нижнее меню',
