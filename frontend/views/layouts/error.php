@@ -82,14 +82,14 @@ AppAsset::register($this);
                         </div>
                         <div class="header-actions d-flex align-items-center flex-row flex-lg-column">
                             <div class="toggle"></div>
-                            <div class="languages ml-4 ml-lg-0 mt-lg-4 py-4 py-lg-0 my-md-0 d-flex text-center">
-
-                                <?php foreach ($languages as $code => $label): ?>
-                                    <a rel="alternate" hreflang="<?= strtoupper($code) ?>" href="<?= Url::current(['language' => $code]) ?>" class="d-block <?= $code === $language ? 'active' : '' ?>">
-                                        <?= strtoupper($code) ?>
-                                    </a>
-                                <?php endforeach; ?>
-                            </div>
+<!--                            <div class="languages ml-4 ml-lg-0 mt-lg-4 py-4 py-lg-0 my-md-0 d-flex text-center">-->
+<!---->
+<!--                                --><?php //foreach ($languages as $code => $label): ?>
+<!--                                    <a rel="alternate" hreflang="--><?php //= strtoupper($code) ?><!--" href="--><?php //= Url::current(['language' => $code]) ?><!--" class="d-block --><?php //= $code === $language ? 'active' : '' ?><!--">-->
+<!--                                        --><?php //= strtoupper($code) ?>
+<!--                                    </a>-->
+<!--                                --><?php //endforeach; ?>
+<!--                            </div>-->
                         </div>
                     </div>
 
