@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <!-- Homepage - English -->
+    <url>
+        <loc>https://aralculturesummit.uz/?language=en</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://aralculturesummit.uz/?language=en"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://aralculturesummit.uz/?language=ru"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://aralculturesummit.uz/?language=uz"/>
+        <xhtml:link rel="alternate" hreflang="ka" href="https://aralculturesummit.uz/?language=ka"/>
+    </url>
+
+    <!-- Homepage - Russian -->
+    <url>
+        <loc>https://aralculturesummit.uz/?language=ru</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://aralculturesummit.uz/?language=en"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://aralculturesummit.uz/?language=ru"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://aralculturesummit.uz/?language=uz"/>
+        <xhtml:link rel="alternate" hreflang="ka" href="https://aralculturesummit.uz/?language=ka"/>
+    </url>
+
+    <!-- Homepage - Uzbek -->
+    <url>
+        <loc>https://aralculturesummit.uz/?language=uz</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://aralculturesummit.uz/?language=en"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://aralculturesummit.uz/?language=ru"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://aralculturesummit.uz/?language=uz"/>
+        <xhtml:link rel="alternate" hreflang="ka" href="https://aralculturesummit.uz/?language=ka"/>
+    </url>
+
+    <!-- Homepage - Georgian -->
+    <url>
+        <loc>https://aralculturesummit.uz/?language=ka</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://aralculturesummit.uz/?language=en"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://aralculturesummit.uz/?language=ru"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://aralculturesummit.uz/?language=uz"/>
+        <xhtml:link rel="alternate" hreflang="ka" href="https://aralculturesummit.uz/?language=ka"/>
+    </url>
+
+</urlset>
