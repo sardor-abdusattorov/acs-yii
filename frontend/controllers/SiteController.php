@@ -54,7 +54,10 @@ class SiteController extends BaseController
         $hero = PageSections::getSection('main_hero', 'home');
 
         $settings = Settings::getValues(['youtube_link']);
-        $sections = Sections::find()->where(['status' => 1])->all();
+        $sections = Sections::find()
+            ->where(['status' => 1])
+            ->orderBy(['sort' => SORT_ASC])
+            ->all();
         $books = Books::find()->where(['status' => 1])->orderBy(['order_by' => SORT_ASC])->all();
         $articles = Articles::find()->where(['status' => 1])->orderBy(['order_by' => SORT_ASC])->all();
         $partners = PageSections::getSection('partners_logo', 'home');
