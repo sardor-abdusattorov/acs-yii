@@ -38,7 +38,7 @@ $youtube_link = $settings['youtube_link'] ?? '';
 <?php if (!empty($sections)): ?>
     <?php foreach ($sections as $section): ?>
 
-        <?php if (!empty($section->redirect_url)): ?>
+        <?php if ($section->name == 'aral_school'): ?>
         <section data-width="<?= $totalMenuWidth ?>"
                  data-redirect="<?= Html::encode($section->redirect_url) ?>"
                  class="menu_bar <?= $section->name ?> redirect-section <?= $section->status == 0 ? 'disabled' : '' ?>">
