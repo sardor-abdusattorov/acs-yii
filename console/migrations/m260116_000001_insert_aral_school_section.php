@@ -13,7 +13,7 @@ class m260116_000001_insert_aral_school_section extends Migration
     public function safeUp()
     {
         $this->insert('{{%sections}}', [
-            'name' => 'aral_school',
+            'name' => 'Aral school',
             'is_opened' => 0,
             'redirect_url' => 'https://www.aralschool.uz/en',
             'status' => 1,
