@@ -202,6 +202,16 @@ $(document).ready(function(e){
 
     $('.section_header').on('click', function () {
         const bar = $(this).closest('.menu_bar');
+
+        // Check if this is a redirect section
+        if (bar.hasClass('redirect-section')) {
+            const redirectUrl = bar.data('redirect');
+            if (redirectUrl) {
+                window.open(redirectUrl, '_blank');
+                return;
+            }
+        }
+
         const hero = $('.hero');
         const menuWidth = bar.data('width') || 180;
 

@@ -13,6 +13,7 @@ use yii\db\Expression;
  * @property int $id
  * @property string $name
  * @property int $is_opened
+ * @property string|null $redirect_url
  * @property int $status
  * @property string|null $created_at
  * @property string|null $updated_at
@@ -50,8 +51,9 @@ class Sections extends ActiveRecord
             [['name'], 'required'],
             [['is_opened', 'status'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['name'], 'string', 'max' => 255],
+            [['name', 'redirect_url'], 'string', 'max' => 255],
             [['name'], 'unique'],
+            [['redirect_url'], 'url'],
         ];
     }
 
@@ -101,6 +103,7 @@ class Sections extends ActiveRecord
             'id' => 'ID',
             'name' => 'Название',
             'is_opened' => 'Открыт',
+            'redirect_url' => 'URL редиректа',
             'status' => 'Статус',
             'created_at' => 'Дата создания',
             'updated_at' => 'Дата обновления',
