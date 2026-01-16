@@ -37,7 +37,17 @@ $youtube_link = $settings['youtube_link'] ?? '';
 
 <?php if (!empty($sections)): ?>
     <?php foreach ($sections as $section): ?>
-        <?php if ($section->name == 'hero'): ?>
+
+        <?php if (!empty($section->redirect_url)): ?>
+        <section data-width="<?= $totalMenuWidth ?>"
+                 data-redirect="<?= Html::encode($section->redirect_url) ?>"
+                 class="menu_bar <?= $section->name ?> redirect-section <?= $section->status == 0 ? 'disabled' : '' ?>">
+            <div class="section_header">
+                <p class="first_title"><?= Html::encode(strtoupper(str_replace('_', ' ', $section->name))) ?></p>
+            </div>
+        </section>
+
+        <?php elseif ($section->name == 'hero'): ?>
             <section data-width="<?= $totalMenuWidth ?>" class="menu_bar <?= $section->name ?> <?= $section->is_opened == 1 ? 'opened' : '' ?> <?= $section->status == 0 ? 'disabled' : '' ?>"
                 <?= $section->is_opened == 1 ? 'style="width: calc(100% - '.$totalMenuWidth.'px);"' : '' ?>>
 
@@ -308,15 +318,6 @@ $youtube_link = $settings['youtube_link'] ?? '';
 
                 </div>
 
-            </section>
-
-        <?php elseif (!empty($section->redirect_url)): ?>
-            <section data-width="<?= $totalMenuWidth ?>"
-                     data-redirect="<?= Html::encode($section->redirect_url) ?>"
-                     class="menu_bar <?= $section->name ?> redirect-section <?= $section->status == 0 ? 'disabled' : '' ?>">
-                <div class="section_header">
-                    <p class="first_title"><?= Html::encode(strtoupper(str_replace('_', ' ', $section->name))) ?></p>
-                </div>
             </section>
 
         <?php elseif ($section->name == 'archive'): ?>

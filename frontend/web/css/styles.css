@@ -676,6 +676,9 @@ body.night .border-top-dotted {
       position: relative;
       background-color: #fff;
 }
+.menu_bar.aral_school{
+      background-color: var(--acs-sun);
+}
 .menu_bar .main_content{
       display: none;
 }
