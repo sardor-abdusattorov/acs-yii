@@ -22,7 +22,7 @@ $(document).ready(function(e){
 
         $.ajax({
             type: 'POST',
-            url: '/' + lang + '/site/get-article',
+            url: '/site/get-article',
             data: {
                 id: articleId,
                 _csrf: $('meta[name="csrf-token"]').attr('content')
@@ -89,7 +89,7 @@ $(document).ready(function(e){
 
         $.ajax({
             type: 'POST',
-            url: '/' + lang + '/site/get-programs',
+            url: '/site/get-programs',
             data: {
                 day: day,
                 _csrf: $('meta[name="csrf-token"]').attr('content')
